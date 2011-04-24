@@ -45,6 +45,7 @@ export HISTFILESIZE=99999
 export HISTSIZE=$HISTFILESIZE
 export HISTTIMEFORMAT='%F %T '
 
+export PATH=~/bin:$PATH
 
 #-------------------------------
 # String manipulation functions
