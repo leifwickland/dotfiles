@@ -12,7 +12,7 @@ fi
 alias grep="grep --color=auto"
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
-alias lla='ls --color=auto -lha'
+alias lla='ls --color=auto -lhA'
 alias llt='ls --color=auto -lhtr'
 alias lls='ls --color=auto -lhSr'
 alias nicest="nice --adjustment=19"
