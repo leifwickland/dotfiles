@@ -1,0 +1,32 @@
+[user]
+    name = Leif Wickland
+    email = leifwickland@gmail.com
+[core]
+    editor = vim
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    dall = diff --no-ext-diff
+
+    d = diff --relative --no-ext-diff
+    dv = diff --ext-diff
+    df = diff --relative --no-ext-diff --name-only
+    dfall = diff --no-ext-diff --name-only
+    ds = diff --relative --no-ext-diff --name-status
+    dsall = diff --no-ext-diff --name-status
+    di = diff-index --color=auto --cached --patch --relative HEAD
+    dfi = diff-index --color=auto --cached --name-only --relative HEAD
+    diall = diff-index --color=auto --cached --patch HEAD
+    dfiall = diff-index --color=auto --cached --name-only HEAD
+
+    lg = log -p
+    logtree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
+[diff]
+    external = ~/bin/git_diff_wrapper
+[pager]
+    diff =
+[color]
+    ui = auto
+
