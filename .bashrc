@@ -48,6 +48,7 @@ export HISTTIMEFORMAT='%F %T '
 
 #-------------------------------
 # String manipulation functions
+# Stolen from http://fahdshariff.blogspot.com/2011/03/my-bash-profile-part-iv-functions.html
 #-------------------------------
  
 # substring word start [length]
