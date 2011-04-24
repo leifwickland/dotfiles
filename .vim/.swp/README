@@ -1,0 +1,1 @@
+I keep my swapfiles in my home directory to avoid lots of IO when the edited file is actually somewhere across a network.
