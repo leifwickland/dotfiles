@@ -6,22 +6,26 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
+" let Vundle manage Vundle. Required!
 Bundle 'gmarik/vundle'
 
 Bundle 'leifwickland/vim-simple-sbt-integration'
 Bundle 'vim-scripts/cvsmenu.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-vividchalk'
+
+Bundle 'rosstimson/scala-vim-support'
+
+" I wish Ensime worked out of the box! _sigh_
+" Bundle 'MarcWeber/vim-addon-async'
+" Bundle 'MarcWeber/vim-addon-completion'
+" Bundle 'MarcWeber/vim-addon-json-encoding'
+" Bundle 'MarcWeber/ensime', {'rtp': 'vim/'}
 
 filetype plugin indent on     " required! 
 " End Vundle setup
 
-" Misc Vundle help
-" :BundleInstall  - install bundles (won't update installed)
-" :BundleInstall! - update if installed
-"
-" :Bundles foo    - search for foo
-"
+" Brief Vundle help
 " :BundleInstall  - install bundles (won't update installed)
 " :BundleInstall! - update if installed
 "
@@ -33,7 +37,8 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details
 
-set incsearch
+set incsearch hlsearch
+
 if has("gui_running")
     set guioptions+=a
     set guioptions-=T
@@ -45,7 +50,7 @@ if has("gui_running")
     set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style 
 endif
 
-colorscheme torte
+" colorscheme torte
 
 " set the location swap files are written to
 set directory=~/.vim/.swp
