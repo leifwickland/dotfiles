@@ -2,6 +2,7 @@
 syntax on
 set nocompatible               " be iMproved
 filetype off                   " required!
+set modelines=0
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -10,6 +11,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'leifwickland/vim-simple-sbt-integration'
+Bundle 'leifwickland/vim-scala-ftplugin'
+
 Bundle 'vim-scripts/cvsmenu.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-vividchalk'
