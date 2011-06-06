@@ -1,5 +1,38 @@
-source $VIMRUNTIME/vimrc_example.vim
-set nocompatible
+" Begin Vundle setup
+syntax on
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+Bundle 'leifwickland/vim-simple-sbt-integration'
+Bundle 'vim-scripts/cvsmenu.vim'
+Bundle 'tpope/vim-fugitive'
+
+filetype plugin indent on     " required! 
+" End Vundle setup
+
+" Misc Vundle help
+" :BundleInstall  - install bundles (won't update installed)
+" :BundleInstall! - update if installed
+"
+" :Bundles foo    - search for foo
+"
+" :BundleInstall  - install bundles (won't update installed)
+" :BundleInstall! - update if installed
+"
+" :Bundles foo    - search for foo
+" :Bundles! foo   - refresh cached list and search for foo
+"
+" :BundleClean    - confirm removal of unused bundles
+" :BundleClean!   - remove without confirmation
+"
+" see :h vundle for more details
+
 set incsearch
 if has("gui_running")
     set guioptions+=a
@@ -29,14 +62,13 @@ nmap K k
 nmap <c-k> k
 
 vmap * y/<c-r>"<cr>
-vmap <m-*> y:grep "<c-r>"" *.c<cr>:copen 7<cr>
 set noequalalways
 set eadirection="ver"
 set diffopt+=iwhite,context:15
 nnoremap ' `
 nnoremap ` '
 
-set ts=4 sw=4 expandtab
+"set ts=4 sw=4 expandtab
 set laststatus=2
 set winminheight=0
 set nobackup
