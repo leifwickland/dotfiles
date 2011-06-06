@@ -2,7 +2,7 @@
 syntax on
 set nocompatible               " be iMproved
 filetype off                   " required!
-set modelines=0
+set nomodeline modelines=0
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
