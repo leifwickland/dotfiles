@@ -15,7 +15,6 @@ Bundle 'leifwickland/vim-scala-ftplugin'
 
 Bundle 'vim-scripts/cvsmenu.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-vividchalk'
 
 Bundle 'rosstimson/scala-vim-support'
 
