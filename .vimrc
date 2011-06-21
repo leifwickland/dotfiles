@@ -69,6 +69,8 @@ inoremap <F8> <c-o>:let @/=''<cr>
 nmap K k
 nmap <c-k> k
 
+set grepprg+=\ -R
+
 vmap * y/<c-r>"<cr>
 set noequalalways
 set eadirection="ver"
