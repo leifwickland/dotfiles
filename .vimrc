@@ -12,8 +12,6 @@ if has("gui_running")
     set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style 
 endif
 
-colorscheme torte
-
 " set the location swap files are written to
 set directory=~/.vim/.swp
 set tags=~/src/trunk/.tags,~/src/trunk/.tagsh
