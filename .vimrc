@@ -1,6 +1,48 @@
-source $VIMRUNTIME/vimrc_example.vim
-set nocompatible
-set incsearch
+" Begin Vundle setup
+syntax on
+set nocompatible               " be iMproved
+filetype off                   " required!
+set nomodeline modelines=0
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle. Required!
+Bundle 'git://github.com/gmarik/vundle'
+
+Bundle 'git://github.com/leifwickland/vim-simple-sbt-integration'
+Bundle 'git://github.com/leifwickland/vim-scala-ftplugin'
+
+" You always forget that this plugin is broken because it as .vim file in DOS format.
+Bundle 'git://github.com/vim-scripts/cvsmenu.vim'
+Bundle 'git://github.com/tpope/vim-fugitive'
+Bundle 'git://github.com/tpope/vim-vividchalk'
+
+Bundle 'git://github.com/rosstimson/scala-vim-support'
+
+" I wish Ensime worked out of the box! _sigh_
+" Bundle 'MarcWeber/vim-addon-async'
+" Bundle 'MarcWeber/vim-addon-completion'
+" Bundle 'MarcWeber/vim-addon-json-encoding'
+" Bundle 'MarcWeber/ensime', {'rtp': 'vim/'}
+
+filetype plugin indent on     " required! 
+" End Vundle setup
+
+" Brief Vundle help
+" :BundleInstall  - install bundles (won't update installed)
+" :BundleInstall! - update if installed
+"
+" :Bundles foo    - search for foo
+" :Bundles! foo   - refresh cached list and search for foo
+"
+" :BundleClean    - confirm removal of unused bundles
+" :BundleClean!   - remove without confirmation
+"
+" see :h vundle for more details
+
+set incsearch hlsearch
+
 if has("gui_running")
     set guioptions+=a
     set guioptions-=T
@@ -26,15 +68,16 @@ inoremap <F8> <c-o>:let @/=''<cr>
 nmap K k
 nmap <c-k> k
 
+set grepprg+=\ -R
+
 vmap * y/<c-r>"<cr>
-vmap <m-*> y:grep "<c-r>"" *.c<cr>:copen 7<cr>
 set noequalalways
 set eadirection="ver"
 set diffopt+=iwhite,context:15
 nnoremap ' `
 nnoremap ` '
 
-set ts=4 sw=4 expandtab
+"set ts=4 sw=4 expandtab
 set laststatus=2
 set winminheight=0
 set nobackup
