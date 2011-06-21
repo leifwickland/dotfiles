@@ -8,15 +8,16 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle. Required!
-Bundle 'gmarik/vundle'
+Bundle 'git://github.com/gmarik/vundle'
 
-Bundle 'leifwickland/vim-simple-sbt-integration'
-Bundle 'leifwickland/vim-scala-ftplugin'
+Bundle 'git://github.com/leifwickland/vim-simple-sbt-integration'
+Bundle 'git://github.com/leifwickland/vim-scala-ftplugin'
 
-Bundle 'vim-scripts/cvsmenu.vim'
-Bundle 'tpope/vim-fugitive'
+" You always forget that this plugin is broken because it has a .vim file in DOS format.
+Bundle 'git://github.com/vim-scripts/cvsmenu.vim'
+Bundle 'git://github.com/tpope/vim-fugitive'
 
-Bundle 'rosstimson/scala-vim-support'
+Bundle 'git://github.com/rosstimson/scala-vim-support'
 
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
@@ -51,8 +52,6 @@ if has("gui_running")
 
     set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style 
 endif
-
-" colorscheme torte
 
 " set the location swap files are written to
 set directory=~/.vim/.swp
