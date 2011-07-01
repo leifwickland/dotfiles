@@ -25,8 +25,5 @@
     logtree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
 [diff]
     external = ~/bin/git_diff_wrapper
-[pager]
-    diff =
 [color]
     ui = auto
-
