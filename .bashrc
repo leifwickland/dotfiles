@@ -17,6 +17,7 @@ alias llt='ls --color=auto -lhtr'
 alias lls='ls --color=auto -lhSr'
 alias nicest="nice --adjustment=19"
 alias wputs='wget -q --output-document=-'
+alias hdfs='hadoop fs'
 
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
@@ -40,6 +41,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 export EDITOR=vim
 export SVN_EDITOR=vim
+
+export GITPAGER="less -FXR"
 
 export HISTFILESIZE=99999
 export HISTSIZE=$HISTFILESIZE

@@ -25,5 +25,9 @@
     logtree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
 [diff]
     external = ~/bin/git_diff_wrapper
+[pager]
+    ; Without this less jumps in front of vim for external diffs and fubars the terminal.
+    ; However, exporting GITPAGER="less -FXR" in .bashrc allows me to get paged, colored diffs
+    diff = 
 [color]
     ui = auto
