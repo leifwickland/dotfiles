@@ -15,6 +15,6 @@ escape "^Jj"
 #bind V screen -t 'vnc' 0 vncviewer jhaslup-qa.corp.rightnow.com
 
 
-#hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
 vbell off
 
