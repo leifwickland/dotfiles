@@ -19,6 +19,8 @@ Bundle 'git://github.com/tpope/vim-fugitive'
 
 Bundle 'git://github.com/rosstimson/scala-vim-support'
 
+Bundle 'git://github.com/leifwickland/vim-php-support'
+
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
 " Bundle 'MarcWeber/vim-addon-completion'
@@ -84,6 +86,9 @@ set cmdheight=3
 
 " Treat *.phph files as if they're *.php files.
 au BufNewFile,BufRead *.phph            setf php
+
+" Treat *.json files as javascript
+au BufNewFile,BufRead *.json            setf javascript
 
 " In order to show matches and to format (), [], and {} nicely when they
 " appear on multiple lines.
