@@ -7,6 +7,14 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+run_local_bashrc() {
+  if [ -f ~/.bashrc.$(hostname).$1 ]; then 
+    . ~/.bashrc.$(hostname).$1
+  fi
+}
+
+run_local_bashrc "pre"
+
 [ -f /etc/profile.d/bash-completion ] && . /etc/profile.d/bash-completion
 
 alias grep="grep --color=auto"
@@ -130,6 +138,4 @@ index() {
     expr index $1 $2
 }
 
-if [ -f $HOME/.bashrc.local ]; then
-	. $HOME/.bashrc.local
-fi
+run_local_bashrc "post"
