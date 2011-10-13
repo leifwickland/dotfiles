@@ -79,7 +79,7 @@ nnoremap ' `
 nnoremap ` '
 
 "set ts=4 sw=4 expandtab
-set laststatus=2
+set laststatus=2 " Always show a status line.
 set winminheight=0
 set nobackup
 set cmdheight=3
