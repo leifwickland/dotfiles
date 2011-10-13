@@ -18,6 +18,13 @@ alias lls='ls --color=auto -lhSr'
 alias nicest="nice --adjustment=19"
 alias wputs='wget -q --output-document=-'
 alias hdfs='hadoop fs'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd......='cd ../../../../..'
+alias cd.......='cd ../../../../../..'
+alias cd........='cd ../../../../../../..'
 
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
