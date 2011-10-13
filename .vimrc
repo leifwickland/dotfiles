@@ -81,6 +81,7 @@ set laststatus=2
 set winminheight=0
 set nobackup
 set cmdheight=3
+set showcmd "Dear self, please never remoe this again. You'll miss the way it tells you the number of visually selected lines. Affectionately, self.
 
 " Treat *.phph files as if they're *.php files.
 au BufNewFile,BufRead *.phph            setf php
