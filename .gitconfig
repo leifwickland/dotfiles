@@ -20,6 +20,12 @@
     dfi = diff-index --color=auto --cached --name-only --relative HEAD
     diall = diff-index --color=auto --cached --patch HEAD
     dfiall = diff-index --color=auto --cached --name-only HEAD
+    do = diff --relative --no-ext-diff origin/master..HEAD
+    dvo = diff --ext-diff origin/master..HEAD
+    dfo = diff --relative --no-ext-diff --name-only origin/master..HEAD
+    dfallo = diff --no-ext-diff --name-only origin/master..HEAD
+    dso = diff --relative --no-ext-diff --name-status origin/master..HEAD
+    dsallo = diff --no-ext-diff --name-status origin/master..HEAD
 
     lg = log -p
     logtree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
