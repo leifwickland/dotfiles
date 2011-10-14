@@ -1,31 +1,33 @@
 export HOME=/nfs/users/lwickland
 export LD_LIBRARY_PATH=~/src/trunk/lib/linux_mysql:/nfs/local/linux/lib:/usr/lib
 export JAVA_HOME="/nfs/local/linux/jdk/1.6/current/jre"
-export PATH="$JAVA_HOME/bin:$PATH"
-export PATH="/nfs/project/aarnone/git/install/bin:$PATH"
 
-export PATH=$PATH:/nfs/project/aarnone/ctags/install/bin
-export PATH=$PATH:/nfs/project/aarnone/vim/install/bin
-export PATH=$PATH:/nfs/project/aarnone/ruby/install/bin
-export PATH=$PATH:/nfs/project/aarnone/python26/install/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:/sbin
-export PATH=$PATH:/usr/X11R6/bin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:~/.ruby-1.6.8/usr/local/bin
-export PATH=$PATH:~/src/trunk/bin/linux_mysql
-export PATH=$PATH:/nfs/local/generic/tools 
-export PATH=$PATH:/nfs/local/linux/bin
-export PATH=$PATH:/nfs/local/linux/insure/bin.linux2
-export PATH=$PATH:/home/mysql/current/bin/
-export PATH=$PATH:/nfs/local/linux/jdk/1.6/current/bin/
-export PATH=$PATH:/nfs/local/linux/libmemcached/0.35/bin/
-export PATH=$PATH:/nfs/local/linux/git/current/bin
-export PATH=$PATH:/nfs/project/aarnone/tig/install/bin
-export PATH=$PATH:/nfs/local/linux/gcc-4.2.2/bin
+# The vim in /nfs/project/aarnone/vim/install/bin tries to start X, which busts my terminal.  No X for you.
+alias vim='vim -X'
+
+pathmunge "/bin"
+pathmunge "/sbin"
+pathmunge "/usr/X11R6/bin"
+pathmunge "/usr/bin"
+pathmunge "/usr/local/bin"
+pathmunge "/usr/local/sbin"
+pathmunge "/usr/sbin"
+pathmunge "~/.ruby-1.6.8/usr/local/bin"
+pathmunge "~/src/trunk/bin/linux_mysql"
+pathmunge "/nfs/local/generic/tools"
+pathmunge "/nfs/local/linux/bin"
+pathmunge "/nfs/local/linux/insure/bin.linux2"
+pathmunge "/home/mysql/current/bin/"
+pathmunge "/nfs/local/linux/jdk/1.6/current/bin/"
+pathmunge "/nfs/local/linux/libmemcached/0.35/bin/"
+pathmunge "/nfs/local/linux/git/current/bin"
+pathmunge "/nfs/project/aarnone/tig/install/bin"
+pathmunge "/nfs/project/aarnone/git/install/bin"
+pathmunge "/nfs/project/aarnone/ctags/install/bin"
+pathmunge "/nfs/project/aarnone/vim/install/bin"
+pathmunge "/nfs/project/aarnone/ruby/install/bin"
+pathmunge "/nfs/project/aarnone/python26/install/bin"
+pathmunge "/nfs/local/linux/gcc-4.2.2/bin"
 
 export RUBY_BASE_PATH=/nfs/users/rnw/lwickland/.ruby-1.6.8
 

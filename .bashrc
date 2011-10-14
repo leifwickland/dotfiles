@@ -1,11 +1,21 @@
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+if [ -f /etc/bashrc ]; then source /etc/bashrc; fi
+
+# Stolen from /etc/profile in RHEL 7.3
+# Lets you add to PATH without duplicating
+pathmunge () {
+	if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+	   if [ "$2" = "after" ] ; then
+	      PATH=$PATH:$1
+	   else
+	      PATH=$1:$PATH
+	   fi
+	fi
+}
 
 run_local_bashrc() {
-  if [ -f ~/.bashrc.$(hostname).$1 ]; then 
-    . ~/.bashrc.$(hostname).$1
+  hostname=$(hostname)
+  if [ -f ~/.bashrc.${hostname}.$1 ]; then 
+    source ~/.bashrc.${hostname}.$1
   fi
 }
 
@@ -65,7 +75,7 @@ export HISTFILESIZE=99999
 export HISTSIZE=$HISTFILESIZE
 export HISTTIMEFORMAT='%F %T '
 
-export PATH=~/bin:$PATH
+pathmunge "~/bin"
 
 #-------------------------------
 # String manipulation functions
@@ -141,3 +151,4 @@ index() {
 }
 
 run_local_bashrc "post"
+unset pathmunge
