@@ -13,14 +13,17 @@ run_local_bashrc "pre"
 
 [ -f /etc/profile.d/bash-completion ] && . /etc/profile.d/bash-completion
 
+#typo me not
+alias amke='make' 
+alias jbos='jobs'
+alias mdkir='mkdir'
+
 alias grep="grep --color=auto"
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -lhA'
 alias llt='ls --color=auto -lhtr'
 alias lls='ls --color=auto -lhSr'
-alias amke='make' #typo me not
-alias jbos='jobs' #typo me not
 alias nicest="nice --adjustment=19"
 alias wputs='wget -q --output-document=-'
 alias hdfs='hadoop fs'
