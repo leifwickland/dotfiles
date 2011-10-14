@@ -15,6 +15,8 @@ alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -lhA'
 alias llt='ls --color=auto -lhtr'
 alias lls='ls --color=auto -lhSr'
+alias amke='make' #typo me not
+alias jbos='jobs' #typo me not
 alias nicest="nice --adjustment=19"
 alias wputs='wget -q --output-document=-'
 alias hdfs='hadoop fs'
@@ -26,6 +28,10 @@ alias cd......='cd ../../../../..'
 alias cd.......='cd ../../../../../..'
 alias cd........='cd ../../../../../../..'
 
+
+# The following PS1 depends on stuff defined in .git-completion.sh
+source ~/.git-completion.sh
+export PS1='\u@\h$(__git_ps1 " [%s]") \w\$ '
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
 shopt -s histappend # Append to, rather than overwrite, the history file when bash closes
