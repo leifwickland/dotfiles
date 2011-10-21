@@ -20,6 +20,7 @@ Bundle 'git://github.com/tpope/vim-fugitive'
 Bundle 'git://github.com/rosstimson/scala-vim-support'
 
 Bundle 'git://github.com/leifwickland/vim-php-support'
+Bundle 'git://github.com/leifwickland/gitcommit-vim-support'
 
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
@@ -78,8 +79,8 @@ set diffopt+=iwhite,context:15
 nnoremap ' `
 nnoremap ` '
 
-set ts=2 sw=2 expandtab
-set statusline=\[%02n\]%*%<\ %f\ %h%m%r%*%=%-14.(%l\/%L,%c%V%)\ \ \ %P
+set textwidth=0 tabstop=2 shiftwidth=2 expandtab
+set statusline=\[%02n\]%*%<\ %f\ %h%m%r%*%=%-14.(%l,%c%)%P
 set laststatus=2 " Always show a status line.
 set winminheight=0
 set nobackup
