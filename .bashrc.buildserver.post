@@ -29,6 +29,10 @@ pathmunge "/nfs/project/aarnone/ruby/install/bin"
 pathmunge "/nfs/project/aarnone/python26/install/bin"
 pathmunge "/nfs/local/linux/gcc-4.2.2/bin"
 
+# For a reaon I don't understand, the build servers don't drop me into my home directory the way I'd like.
+cd $HOME
+
+
 export RUBY_BASE_PATH=/nfs/users/rnw/lwickland/.ruby-1.6.8
 
 export IFDIR=/home/httpd/cgi-bin/leif.cfg/
