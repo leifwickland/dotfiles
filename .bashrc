@@ -48,7 +48,14 @@ alias cd........='cd ../../../../../../..'
 
 # The following PS1 depends on stuff defined in .git-completion.sh
 source ~/.git-completion.sh
-export PS1='\u@\h$(__git_ps1 " [%s]") \w\$ '
+__truncated_git_ps1() { 
+  g=$(__git_ps1)
+  # __get_ps1 returns a string like: " (branchName)"
+  let e=${#g}-3 #so strip the leading space and both parens
+  truncateWithEllipsis "${g:2:e}" 20
+}
+export PS1='\u@\h [$(__truncated_git_ps1)] \w\$ '
+#export PS1='\u@\h$(__git_ps1 " [%s]") \w\$ '
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
 shopt -s histappend # Append to, rather than overwrite, the history file when bash closes
@@ -79,6 +86,30 @@ export HISTSIZE=$HISTFILESIZE
 export HISTTIMEFORMAT='%F %T '
 
 pathmunge "~/bin"
+
+cdf() {
+  if [ $# -lt 1 ]; then
+    echo "Usage: cdf <file>"
+    echo "Will change to the directory containing that file."
+    echo ""
+    return 1
+  fi
+  dir=$(dirname "$1")
+  cd "$dir"
+}
+
+truncateWithEllipsis() {
+  if [ $# -lt 2 ]; then
+    echo "Usage: substring word maxLength"
+    return 1
+  fi
+  if [ ${#1} -le $2 ]; then
+    echo -n "$1"
+  else 
+    let end=$2-3
+    echo -n "${1:0:$end}..."
+  fi
+}
 
 #-------------------------------
 # String manipulation functions
