@@ -8,8 +8,9 @@
     ci = commit
     br = branch
     co = checkout
-    dall = diff --no-ext-diff
+    unstage=reset HEAD --
 
+    dall = diff --no-ext-diff
     d = diff --relative --no-ext-diff
     dv = diff --ext-diff
     df = diff --relative --no-ext-diff --name-only
