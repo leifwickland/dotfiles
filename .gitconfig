@@ -4,12 +4,19 @@
 [core]
     editor = vim
 [alias]
+    ; Laziness is a virtue; short aliases
     st = status
     ci = commit
     br = branch
     co = checkout
-    unstage=reset HEAD --
 
+    ; Misc undo
+    unstage=reset HEAD --
+    revertToIndex=checkout --
+    revertToHead=checkout HEAD
+    revertLastCommit=revert HEAD
+
+    ; So many ways to diff
     dall = diff --no-ext-diff
     d = diff --relative --no-ext-diff
     dv = diff --ext-diff
