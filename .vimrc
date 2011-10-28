@@ -19,6 +19,8 @@ Bundle 'git://github.com/tpope/vim-fugitive'
 
 Bundle 'git://github.com/rosstimson/scala-vim-support'
 
+Bundle 'git@github.com:leifwickland/tagbar.git'
+
 Bundle 'git://github.com/leifwickland/vim-php-support'
 Bundle 'git://github.com/leifwickland/gitcommit-vim-support'
 
@@ -58,7 +60,6 @@ endif
 
 " set the location swap files are written to
 set directory=~/.vim/.swp
-set tags=~/src/trunk/.tags,~/src/trunk/.tagsh
 set cino+=(0,g0,:0
 nmap <m-]>  :let tagword=expand("<cword>")<CR>:exe "tj ".tagword<CR>
 nnoremap <m-}>  :let tagword=expand("<cword>")<CR>:exe "stj ".tagword<CR>
