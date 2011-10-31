@@ -1,1 +1,1 @@
-source ~/.bashrc.buildserver.post
+source ~/.bashrc.local/buildserver.post.sh
