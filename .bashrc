@@ -51,6 +51,7 @@ source ~/.git-completion.sh
 __truncated_git_ps1() { 
   g=$(__git_ps1)
   # __get_ps1 returns a string like: " (branchName)"
+  # The following syntax doesn't work in Bash 3.  Don't care.
   let e=${#g}-3 #so strip the leading space and both parens
   if [ $e -gt 0 ]; then # If we're not in a git repo, don't put mention it.
     echo -n "[$(truncateWithEllipsis ${g:2:e} 20)] "
