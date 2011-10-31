@@ -107,7 +107,7 @@ truncateWithEllipsis() {
   if [ ${#1} -le $2 ]; then
     echo -n "$1"
   else 
-    let end=$2-3
+    let end=$2 - 3
     echo -n "${1:0:$end}..."
   fi
 }
