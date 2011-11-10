@@ -100,6 +100,7 @@ cdf() {
   cd "$dir"
 }
 
+# Changes directory to the root directory of the current git repo 
 cdg() {
   D=`pwd`
   while [ ! -d "$D/.git" -a "$D" != "/" ]; do
