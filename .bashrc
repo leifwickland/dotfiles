@@ -100,6 +100,18 @@ cdf() {
   cd "$dir"
 }
 
+cdg() {
+  D=`pwd`
+  while [ ! -d "$D/.git" -a "$D" != "/" ]; do
+    D=$(readlink -f $D/../)
+  done
+  if [ "$D" == "/" ]; then
+    echo "I went all the way to / without finding a .git. Giving up."
+  else 
+    cd "$D"
+  fi
+}
+
 truncateWithEllipsis() {
   if [ $# -lt 2 ]; then
     echo "Usage: substring word maxLength"
