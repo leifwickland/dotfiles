@@ -39,6 +39,11 @@
     logtree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
 
     dryad = add -n . ; Oh, mythological puns, how you slay me.
+
+    ; Rebase steps
+    reb = rebase -i origin/master
+    now = commit --amend --date="`date`"
+    con = rebase --continue
 [diff]
     external = ~/bin/git_diff_wrapper
 [pager]
