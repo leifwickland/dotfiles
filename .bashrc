@@ -89,6 +89,11 @@ export HISTTIMEFORMAT='%F %T '
 
 pathmunge "~/bin"
 
+# Dumps the current git branch.
+gitbr() {
+  git branch --no-color | grep '[*]' | sed 's/[ *]//g'
+}
+
 cdf() {
   if [ $# -lt 1 ]; then
     echo "Usage: cdf <file>"
