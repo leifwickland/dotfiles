@@ -3,10 +3,16 @@ escape "^Jj"
 
 # This seems to prevent bad things from happening to my terminal's title bar.  No I don't understand what it does.
 # I got it from http://code-and-hacks.blogspot.com/2010/04/setting-terminal-title-in-gnu-screen.html
-termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+#termcapinfo * 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
 # Show a reasonable status line for screen.
-hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+
+# Set the terminal's title
+hardstatus string "$HOSTNAME $USER"
+
+# But don't display the terminal's title at the bottom of screen
+hardstatus off
 
 # Never ever blink the screen at me.  Ever.
 vbell off
