@@ -1,20 +1,12 @@
-#
+# Use J instead of A for the screen meta key.
 escape "^Jj"
-#
-#termcapinfo xterm     ti@:te@
-#
-# termcap  xterm        'AF=\E[3%dm:AB=\E[4%dm'
-# terminfo xterm        'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
-#
-# Matthias Kopfermann <matthias_kopfermann@gmx.de> [020222]:
-# make the cursor show up in red:
-#termcapinfo linux "ve=\E[?25h\E[?17;0;64c"
 
-#bind E screen -t 'emacs' 0 emacs -nw
-#bind m screen -t 'madison' 0 ssh madison
-#bind V screen -t 'vnc' 0 vncviewer jhaslup-qa.corp.rightnow.com
+# This seems to prevent bad things from happening to my terminal's title bar.  No I don't understand what it does.
+# I got it from http://code-and-hacks.blogspot.com/2010/04/setting-terminal-title-in-gnu-screen.html
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
-
+# Show a reasonable status line for screen.
 hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
-vbell off
 
+# Never ever blink the screen at me.  Ever.
+vbell off
