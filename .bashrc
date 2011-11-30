@@ -17,6 +17,7 @@ run_local_bashrc() {
   if [ -f $f ]; then 
     source $f
   fi
+  unset f
 }
 
 run_local_bashrc "pre"
