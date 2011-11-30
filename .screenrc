@@ -4,8 +4,8 @@ escape "^Jj"
 # Show a reasonable status line for screen.
 caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
 
-# Set the terminal's title
-hardstatus string "$HOSTNAME $USER"
+# Set the terminal's title to the hostname
+hardstatus string "%H"
 
 # But don't display the terminal's title at the bottom of screen
 hardstatus off
