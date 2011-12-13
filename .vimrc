@@ -10,19 +10,24 @@ call vundle#rc()
 " let Vundle manage Vundle. Required!
 Bundle 'git://github.com/gmarik/vundle'
 
-Bundle 'git://github.com/leifwickland/vim-simple-sbt-integration'
+" Scala support
 Bundle 'git://github.com/leifwickland/vim-scala-ftplugin'
-
-" You always forget that this plugin is broken because it has a .vim file in DOS format.
-Bundle 'git://github.com/vim-scripts/cvsmenu.vim'
-Bundle 'git://github.com/tpope/vim-fugitive'
-
 Bundle 'git://github.com/rosstimson/scala-vim-support'
 
+" Dear self, you always forget that this plugin is broken because it has a .vim file in DOS format.
+Bundle 'git://github.com/vim-scripts/cvsmenu.vim'
+
+" Git support
+Bundle 'git://github.com/tpope/vim-fugitive'
+
+" Adds a sidebar displaying the current file's methods, members, etc.
 Bundle 'git@github.com:leifwickland/tagbar.git'
 
+" PHP support
 Bundle 'git://github.com/leifwickland/vim-php-support'
-Bundle 'git://github.com/leifwickland/gitcommit-vim-support'
+
+" Markdown support
+Bundle 'git://github.com/tpope/vim-markdown'
 
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
