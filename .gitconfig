@@ -42,7 +42,7 @@
 
     ; Rebase steps
     reb = rebase -i origin/master
-    now = commit --amend --date="`date`"
+    now = !git commit --amend --date=`date +%s`
     con = rebase --continue
 [diff]
     external = ~/bin/git_diff_wrapper
