@@ -1,15 +1,12 @@
-1. (From already an setup box) scp -r .ssh $REMOTE:.
+1. scp -r .ssh $REMOTE:.   # From already an setup box
 2. ssh $REMOTE
 3. git clone git@github.com:leifwickland/my-linux-shell-essentials.git
-4. cd my-linux-shell-essentials
-5. mv * .* ..
-6. (.ssh, ., and .. will fail.  That's fine.)
-7. exit
-8. ssh $REMOTE
-9. rm -r ~/my-linux-shell-essentials
-10. mkdir -p ~/.vim/.swp
-11. mkdir -p ~/.vim/bundle 
-12. cd !$
-13. git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-14. vim -c BundleInstall
-15. dos2unix cvsmenu.vim/plugin/cvsmenu.vim
+4. mv my-linux-shell-essentials/*.* ~   # .ssh, ., and .. will fail.  That's fine.
+5. exit
+6. ssh $REMOTE
+7. rm -r ~/my-linux-shell-essentials
+8. for d in ~/.vim/.swp ~/.vim/bundle; do mkdir -p $d; done
+9. cd ~/.vim/bundle
+10. git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+11. vim -c BundleInstall
+12. dos2unix cvsmenu.vim/plugin/cvsmenu.vim
