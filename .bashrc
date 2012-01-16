@@ -29,7 +29,7 @@ alias amke='make'
 alias jbos='jobs'
 alias mdkir='mkdir'
 
-alias grep="grep --color=auto"
+export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -lhA'
