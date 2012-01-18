@@ -95,6 +95,19 @@ gitbr() {
   git branch --no-color | grep '[*]' | sed 's/[ *]//g'
 }
 
+cdr() {
+  if [ $# -lt 2 ]; then
+    echo "Usage: cdr <segment to match> <replacement"
+    echo "Changes to the directory that is formed by replacing the specified segment with the replacement."
+    echo ""
+    return 1
+  fi
+  end='$'
+  newdir=`pwd | sed -r "s@/$1(/|$end)@/$2/@"`
+  echo "Newdir: $newdir"
+  cd "$newdir"
+}
+
 cdf() {
   if [ $# -lt 1 ]; then
     echo "Usage: cdf <file>"
