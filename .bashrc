@@ -88,6 +88,10 @@ export HISTFILESIZE=99999
 export HISTSIZE=$HISTFILESIZE
 export HISTTIMEFORMAT='%F %T '
 
+# Complete ssh hostnames by rummaging around in bash history. Idea from http://b.sricola.com/post/16174981053/bash-autocomplete-for-ssh
+# Technically this version is wrong because it always grabs the last word on the line, but that was the easiest way to skip past options.
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
+
 pathmunge "~/bin"
 
 # Dumps the current git branch.
@@ -97,15 +101,20 @@ gitbr() {
 
 cdr() {
   if [ $# -lt 2 ]; then
-    echo "Usage: cdr <segment to match> <replacement"
-    echo "Changes to the directory that is formed by replacing the specified segment with the replacement."
-    echo ""
+    echo "Usage: cdr <segment to match> <replacement" 1>&2
+    echo "Changes to the directory that is formed by replacing the specified segment with the replacement." 1>&2
+    echo "" 1>&2
     return 1
   fi
   end='$'
   newdir=`pwd | sed -r "s@/$1(/|$end)@/$2/@"`
-  echo "Newdir: $newdir"
-  cd "$newdir"
+  if [ "$newdir" == "`pwd`" ]; then 
+    echo "ERROR: I couldn't find '$1' in $(pwd)." 1>&2
+    echo "" 1>&2
+    return 1
+  else
+    cd "$newdir"
+  fi
 }
 
 cdf() {
