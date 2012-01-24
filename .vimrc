@@ -12,10 +12,11 @@ Bundle 'git://github.com/gmarik/vundle'
 
 " Scala support
 Bundle 'git://github.com/leifwickland/vim-scala-ftplugin'
-Bundle 'git://github.com/rosstimson/scala-vim-support'
+Bundle 'git://github.com/leifwickland/scala-vim-support'
 
 " Dear self, you always forget that this plugin is broken because it has a .vim file in DOS format.
-Bundle 'git://github.com/vim-scripts/cvsmenu.vim'
+" I ended up making my own repo so I could fix that irritation.
+Bundle 'git://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
 Bundle 'git://github.com/tpope/vim-fugitive'
