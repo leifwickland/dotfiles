@@ -30,6 +30,8 @@ Bundle 'git://github.com/leifwickland/vim-php-support'
 " Markdown support
 Bundle 'git://github.com/tpope/vim-markdown'
 
+Bundle 'git://github.com/rson/vim-conque'
+
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
 " Bundle 'MarcWeber/vim-addon-completion'
