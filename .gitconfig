@@ -9,7 +9,7 @@
     ci = commit
     br = branch
     co = checkout
-    ppom = !git pull origin master && git push origin master
+    pp = !git pull && git push 
 
     ; Misc undo
     unstage=reset HEAD --
