@@ -1,5 +1,5 @@
 export HOME=/nfs/users/lwickland
-export LD_LIBRARY_PATH=~/src/trunk/lib/linux_mysql:/nfs/local/linux/lib:/usr/lib
+export LD_LIBRARY_PATH=~/src/trunk/rnw/lib/linux_mysql:/nfs/local/linux/lib:/usr/lib
 export JAVA_HOME="/nfs/local/linux/jdk/1.6/current/jre"
 
 # The vim in /nfs/project/aarnone/vim/install/bin tries to start X, which busts my terminal.  No X for you.

@@ -1,0 +1,3 @@
+otherSourceTreeRoot = "/nfs/users/ma/lwickland/src/rnw125/"
+changesDirectoryRegex = %r{^.*/trunk[^/]*/?(.*?)$}
+
