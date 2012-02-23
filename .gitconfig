@@ -9,7 +9,7 @@
     ci = commit
     br = branch
     co = checkout
-    pp = !git pull && git push 
+    pp = !echo "Pulling" && git pull && echo "" && echo "Pushing" && git push
 
     ; Misc undo
     unstage=reset HEAD --
