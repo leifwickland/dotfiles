@@ -5,6 +5,7 @@ export JAVA_HOME="/nfs/local/linux/jdk/1.6/current/jre"
 # The vim in /nfs/project/aarnone/vim/install/bin tries to start X, which busts my terminal.  No X for you.
 alias vim='vim -X'
 
+#The bottom of the list appears last in the search order
 pathmunge "/bin"
 pathmunge "/sbin"
 pathmunge "/usr/X11R6/bin"
@@ -27,7 +28,9 @@ pathmunge "/nfs/project/aarnone/ctags/install/bin"
 pathmunge "/nfs/project/aarnone/vim/install/bin"
 pathmunge "/nfs/project/aarnone/ruby/install/bin"
 pathmunge "/nfs/project/aarnone/python26/install/bin"
+pathmunge "/nfs/project/aarnone/ctags/current/bin"
 pathmunge "/nfs/local/linux/gcc-4.2.2/bin"
+#The bottom of the list appears first in the search order
 
 # For a reaon I don't understand, the build servers don't drop me into my home directory the way I'd like.
 cd $HOME
