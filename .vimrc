@@ -86,6 +86,10 @@ nmap <c-k> k
 
 set grepprg+=\ -R
 
+" Scala specific grep
+command! -nargs=+ GS :grep --include='*.scala' <args> */
+command! -nargs=+ GSS :grep --include='*.scala' <args> 
+
 vmap * y/<c-r>"<cr>
 set noequalalways
 set eadirection="ver"
@@ -120,4 +124,4 @@ command! -nargs=? Re :res <args>
 command! -nargs=? R :res <args>
 cabbr mka mak
 cab re res
-command! -nargs=? E :Explore <args>
+
