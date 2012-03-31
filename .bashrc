@@ -90,7 +90,7 @@ export HISTTIMEFORMAT='%F %T '
 
 # Complete ssh hostnames by rummaging around in bash history. Idea from http://b.sricola.com/post/16174981053/bash-autocomplete-for-ssh
 # Technically this version is wrong because it always grabs the last word on the line, but that was the easiest way to skip past options.
-complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
+complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
 
 pathmunge "~/bin"
 
@@ -226,6 +226,30 @@ index() {
     fi
     expr index $1 $2
 }
+
+# Download and extract tar
+ctar() {
+  taroptions="vx$2"
+  if [ $# -lt 1 -o $# -gt 2 -o "${1:0:4}" != "http" ]; then
+    echo ""
+    echo "Download and extract a tar with '$taroptions'"
+    echo "USAGE:" 
+    echo "  $0 <url> [additional tar options]"
+    echo ""
+  else
+    curl "$1" | tar "$taroptions"
+  fi
+} 
+
+# Download and extract gzipped tar
+ctarz() {
+  ctar "$1" "z"
+} 
+
+# Download and extract bzipped tar
+ctarj() {
+  ctar "$1" "j"
+} 
 
 run_local_bashrc "post"
 unset pathmunge
