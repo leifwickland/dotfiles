@@ -1,1 +1,1 @@
-source ~/.bashrc.local/buildserver.pre.sh
+buildserver.pre.sh
