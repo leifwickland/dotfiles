@@ -14,7 +14,7 @@ pathmunge () {
 
 run_local_bashrc() {
   f=~/.bashrc.local/$(hostname).$1.sh
-  if [ -f $f ]; then 
+  if [ -f $f ]; then
     source $f
   fi
   unset f
@@ -25,7 +25,7 @@ run_local_bashrc "pre"
 [ -f /etc/profile.d/bash-completion ] && . /etc/profile.d/bash-completion
 
 #typo me not
-alias amke='make' 
+alias amke='make'
 alias jbos='jobs'
 alias mdkir='mkdir'
 
@@ -49,7 +49,7 @@ alias cd........='cd ../../../../../../..'
 
 # The following PS1 depends on stuff defined in .git-completion.sh
 source ~/.git-completion.sh
-__truncated_git_ps1() { 
+__truncated_git_ps1() {
   g=$(__git_ps1)
   # __get_ps1 returns a string like: " (branchName)"
   # The following syntax doesn't work in Bash 3.  Don't care.
@@ -66,7 +66,7 @@ shopt -s cdspell # Attempt to correct misspellings
 shopt -s dirspell 2>/dev/null # Attempt to correct more misspellings
 shopt -u mailwarn # I don't care about new mail.
 shopt -s globstar 2>/dev/null # Make ** do a recursive wildcard.
-shopt -s checkwinsize # Checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS. 
+shopt -s checkwinsize # Checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS.
 
 set -o vi # use vi style command editing
 
@@ -90,7 +90,7 @@ export HISTTIMEFORMAT='%F %T '
 
 # Complete ssh hostnames by rummaging around in bash history. Idea from http://b.sricola.com/post/16174981053/bash-autocomplete-for-ssh
 # Technically this version is wrong because it always grabs the last word on the line, but that was the easiest way to skip past options.
-complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
+complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
 
 pathmunge "~/bin"
 
@@ -108,7 +108,7 @@ cdr() {
   fi
   end='$'
   newdir=`pwd | sed -r "s@/$1(/|$end)@/$2/@"`
-  if [ "$newdir" == "`pwd`" ]; then 
+  if [ "$newdir" == "`pwd`" ]; then
     echo "ERROR: I couldn't find '$1' in $(pwd)." 1>&2
     echo "" 1>&2
     return 1
@@ -128,7 +128,7 @@ cdf() {
   cd "$dir"
 }
 
-# Changes directory to the root directory of the current git repo 
+# Changes directory to the root directory of the current git repo
 cdg() {
   D=`pwd`
   while [ ! -d "$D/.git" -a "$D" != "/" ]; do
@@ -136,7 +136,7 @@ cdg() {
   done
   if [ "$D" == "/" ]; then
     echo "I went all the way to / without finding a .git. Giving up."
-  else 
+  else
     cd "$D"
   fi
 }
@@ -148,7 +148,7 @@ truncateWithEllipsis() {
   fi
   if [ ${#1} -le $2 ]; then
     echo -n "$1"
-  else 
+  else
     let end=$2-3
     echo -n "${1:0:$end}..."
   fi
@@ -158,7 +158,7 @@ truncateWithEllipsis() {
 # String manipulation functions
 # Stolen from http://fahdshariff.blogspot.com/2011/03/my-bash-profile-part-iv-functions.html
 #-------------------------------
- 
+
 # substring word start [length]
 substring() {
     if [ $# -lt 2 ]; then
@@ -172,7 +172,7 @@ substring() {
         echo ${1:$2:$3}
     fi
 }
- 
+
 # length of string
 length() {
     if [ $# -ne 1 ]; then
@@ -181,7 +181,7 @@ length() {
     fi
     echo ${#1}
 }
- 
+
 # Upper-case
 upper() {
     if [ $# -lt 1 ]; then
@@ -190,7 +190,7 @@ upper() {
     fi
     echo ${@^^}
 }
- 
+
 # Lower-case
 lower() {
     if [ $# -lt 1 ]; then
@@ -199,7 +199,7 @@ lower() {
     fi
     echo ${@,,}
 }
- 
+
 # replace part of string with another
 replace() {
     if [ $# -ne 3 ]; then
@@ -208,7 +208,7 @@ replace() {
     fi
     echo ${1/$2/$3}
 }
- 
+
 # replace all parts of a string with another
 replaceAll() {
     if [ $# -ne 3 ]; then
@@ -217,7 +217,7 @@ replaceAll() {
     fi
     echo ${1//$2/$3}
 }
- 
+
 # find index of specified string
 index() {
     if [ $# -ne 2 ]; then
@@ -225,6 +225,30 @@ index() {
         return 1
     fi
     expr index $1 $2
+}
+
+# Download and extract tar
+ctar() {
+  taroptions="vx$2"
+  if [ $# -lt 1 -o $# -gt 2 -o "${1:0:4}" != "http" ]; then
+    echo ""
+    echo "Download and extract a tar with '$taroptions'"
+    echo "USAGE:"
+    echo "  $0 <url> [additional tar options]"
+    echo ""
+  else
+    curl "$1" | tar "$taroptions"
+  fi
+}
+
+# Download and extract gzipped tar
+ctarz() {
+  ctar "$1" "z"
+}
+
+# Download and extract bzipped tar
+ctarj() {
+  ctar "$1" "j"
 }
 
 run_local_bashrc "post"
