@@ -55,6 +55,9 @@ filetype plugin indent on     " required!
 
 set incsearch hlsearch
 
+" See http://code.google.com/p/conque/wiki/Usage
+let g:ConqueTerm_ReadUnfocused = 1
+
 if has("gui_running")
   set guioptions+=a
   set guioptions-=T
