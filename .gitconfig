@@ -2,7 +2,7 @@
     name = Leif Wickland
     email = leifwickland@gmail.com
 [core]
-    editor = vim
+    editor = vim -X
 [alias]
     ; Laziness is a virtue; short aliases
     st = status
