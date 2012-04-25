@@ -9,14 +9,14 @@ else
 end
 output = `cvs diff 2> /dev/null`
 output.each {|line|
-  if %r{^RCS file: /nfs/src/cvsroot/((?:rnt|test|rnw)/.*?),v$} =~ line
+  if %r{^RCS file: /nfs/src/cvsroot/(?:rnt/)?((?:test|rnw)/.*?),v$} =~ line
     filename = $1.sub(/\/Attic\//, '/')
     if (workingDir.length == 0)
       puts filename
     elsif filename[0,workingDir.length] === workingDir
       puts filename[(workingDir.length + 1)..(-1)]
     else
-      puts "That's odd.  #{filename} doesn't contain the working directory."
+      puts "That's odd.  #{filename} doesn't contain the working directory, '#{workingDir}'."
       exit
     end
   end
