@@ -107,6 +107,10 @@ set winminheight=0
 set nobackup
 set cmdheight=3
 set showcmd "Dear self, please never remove this again. You'll miss the way it tells you the number of visually selected lines. Affectionately, self.
+set history=9999 "Remember more lines command line history, please.
+
+" Make ctrl-\ like ctrl-], but split the window
+nnoremap  "-yiw:stag -
 
 " Treat *.phph files as if they're *.php files.
 au BufNewFile,BufRead *.phph            setf php
