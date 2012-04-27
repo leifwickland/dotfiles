@@ -58,7 +58,7 @@ __truncated_git_ps1() {
     echo -n "[$(truncateWithEllipsis ${g:2:e} 20)] "
   fi
 }
-export PS1='\u@\h $(__truncated_git_ps1)\w\$ '
+export PS1='\n\u@\h $(__truncated_git_ps1)\w\$ '
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
 shopt -s histappend # Append to, rather than overwrite, the history file when bash closes
