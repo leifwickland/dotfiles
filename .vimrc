@@ -57,7 +57,8 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details
 
-set incsearch hlsearch
+" Highlight search results. Search incrementally as I type.
+set hlsearch incsearch 
 
 " See http://code.google.com/p/conque/wiki/Usage
 let g:ConqueTerm_ReadUnfocused = 1
@@ -80,17 +81,22 @@ endif
 
 " set the location swap files are written to
 set directory=~/.vim/.swp
+
+" Fiddle with indentation options.
 set cino+=(0,g0,:0
-nmap <m-]>  :let tagword=expand("<cword>")<CR>:exe "tj ".tagword<CR>
-nnoremap <m-}>  :let tagword=expand("<cword>")<CR>:exe "stj ".tagword<CR>
-vnoremap <m-]> y:tj <c-r>"<cr>
-vnoremap <m-}> y:stj <c-r>"<cr>
-nnoremap <m-*> yiw:grep "<c-r>"" *.c<cr>:copen 7<cr>
-nnoremap <F8> :let @/=''<cr>
-inoremap <F8> <c-o>:let @/=''<cr>
+
+" Use F8 to clear search highlighting
+nnoremap <F8> :noh<cr>
+inoremap <F8> <c-o>:noh<cr>
+
+" The odds that I meant 'look up a man page for the word under the cursor'
+" rather than go up are infinitesimally small.
 nmap K k
+
+" Idem. above except digram characters.
 nmap <c-k> k
 
+" Yes, please, grep recursively.
 set grepprg+=\ -R
 
 " Scala specific grep
@@ -98,23 +104,45 @@ command! -nargs=+ GS :grep --include='*.scala' <args> */
 command! -nargs=+ GSS :grep --include='*.scala' <args> 
 
 vmap * y/<c-r>"<cr>
+
+" No, I don't want you to keep all the windows the same height.
 set noequalalways
+
+" But I do want to keep all windows the same width by default.
 set eadirection="ver"
+
 set diffopt+=iwhite,context:15
+
+" Swap around ' and ` because the ` version jumps to a particular line and column, not just a particular line.
 nnoremap ' `
 nnoremap ` '
 
+" Don't wrap. Indent 2 spaces. Use spaces, not tabs.
 set textwidth=0 tabstop=2 shiftwidth=2 expandtab
+
+" Include useful stuff in the status line: buffer number, file name, current line & column, percentage through file.
 set statusline=\[%02n\]%*%<\ %f\ %h%m%r%*%=%-14.(%l,%c%)%P
-set laststatus=2 " Always show a status line.
+
+" Always show a status line.
+set laststatus=2 
+
+"Allow my windows to be smushed to zero height.
 set winminheight=0
+
+" How about I use version control instead of having every file write result in a .bak file?
 set nobackup
-set cmdheight=3
-set showcmd "Dear self, please never remove this again. You'll miss the way it tells you the number of visually selected lines. Affectionately, self.
-set history=9999 "Remember more lines command line history, please.
+
+" Dear self, please never remove this again. You'll miss the way it tells you the number of visually selected lines. Affectionately, self.
+set showcmd 
+
+" I like to set this to slightly more so that if a command prints two lines, I don't have to scroll through it.
+set cmdheight=2 
+
+"Remember more lines of command line history, please.
+set history=9999 
 
 " Make ctrl-\ like ctrl-], but split the window
-nnoremap  "-yiw:stag -
+nnoremap <c-\> :stag <c-r><c-w><cr>
 
 " Treat *.phph files as if they're *.php files.
 au BufNewFile,BufRead *.phph            setf php
@@ -136,4 +164,3 @@ command! -nargs=? R :res <args>
 cabbr mka mak
 cab re res
 cab SEx Sex
-
