@@ -42,7 +42,7 @@ Bundle 'git://github.com/vim-scripts/jsbeautify'
 " Bundle 'MarcWeber/vim-addon-json-encoding'
 " Bundle 'MarcWeber/ensime', {'rtp': 'vim/'}
 
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 " End Vundle setup
 
 " Brief Vundle help
@@ -58,7 +58,7 @@ filetype plugin indent on     " required!
 " see :h vundle for more details
 
 " Highlight search results. Search incrementally as I type.
-set hlsearch incsearch 
+set hlsearch incsearch
 
 " See http://code.google.com/p/conque/wiki/Usage
 let g:ConqueTerm_ReadUnfocused = 1
@@ -71,10 +71,10 @@ if has("gui_running")
   set guioptions-=R
   set guioptions-=L
 
-  set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style 
+  set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style
 
   au GUIEnter * simalt ~x " Maximize GVim on startup.
-else 
+else
   " I really like how this looks in Putty and really hate how it looks in gvim
   colorscheme desert
 endif
@@ -101,7 +101,7 @@ set grepprg+=\ -R
 
 " Scala specific grep
 command! -nargs=+ GS :grep --include='*.scala' <args> */
-command! -nargs=+ GSS :grep --include='*.scala' <args> 
+command! -nargs=+ GSS :grep --include='*.scala' <args>
 
 vmap * y/<c-r>"<cr>
 
@@ -124,7 +124,7 @@ set textwidth=0 tabstop=2 shiftwidth=2 expandtab
 set statusline=\[%02n\]%*%<\ %f\ %h%m%r%*%=%-14.(%l,%c%)%P
 
 " Always show a status line.
-set laststatus=2 
+set laststatus=2
 
 "Allow my windows to be smushed to zero height.
 set winminheight=0
@@ -133,13 +133,13 @@ set winminheight=0
 set nobackup
 
 " Dear self, please never remove this again. You'll miss the way it tells you the number of visually selected lines. Affectionately, self.
-set showcmd 
+set showcmd
 
 " I like to set this to slightly more so that if a command prints two lines, I don't have to scroll through it.
-set cmdheight=2 
+set cmdheight=2
 
 "Remember more lines of command line history, please.
-set history=9999 
+set history=9999
 
 " Make ctrl-\ like ctrl-], but split the window
 nnoremap <c-\> :stag <c-r><c-w><cr>
