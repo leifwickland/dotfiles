@@ -135,8 +135,8 @@ set nobackup
 " Dear self, please never remove this again. You'll miss the way it tells you the number of visually selected lines. Affectionately, self.
 set showcmd
 
-" I like to set this to slightly more so that if a command prints two lines, I don't have to scroll through it.
-set cmdheight=2
+" I like to set this to slightly more so that if a command prints two or three lines, I don't have to scroll through it.
+set cmdheight=3
 
 "Remember more lines of command line history, please.
 set history=9999
