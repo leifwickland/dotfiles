@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 repo = `cat CVS/Repository`.strip
 if repo == "" 
-  puts " The current directory doesn't have a CVS/Repository file.  I give up."
+  $stderr.puts "The current directory doesn't have a CVS/Repository file.  I give up."
   exit
 end
 # I tend to work in CVS repos where the first segment doesn't match the directory it's actually on disk.
@@ -13,6 +13,6 @@ diffs.split("\n").each {|line|
   if /^.*#{repo}\/(.+),v$/ =~ line
     puts $1
   else 
-    puts "I couldn't get #{line} to match #{repo}."
+    $stderr.puts "I couldn't get #{line} to match #{repo}."
   end
 }
