@@ -47,6 +47,10 @@ alias cd.......='cd ../../../../../..'
 alias cd........='cd ../../../../../../..'
 
 
+# Roughly the equivalent of: 
+#   git diff -no-ext-diff --relative --name-only
+alias cvsdiff='cvs -q diff | grep ^Index: | sed -re "s/^Index: //"'
+
 # The following PS1 depends on stuff defined in .git-completion.sh
 source ~/.git-completion.sh
 __truncated_git_ps1() {
