@@ -1,4 +1,6 @@
 #! /usr/bin/env ruby
+# Roughly the equivalent of:
+#   git diff -no-ext-diff --relative --name-only
 repo = `cat CVS/Repository`.strip
 if repo == "" 
   $stderr.puts "The current directory doesn't have a CVS/Repository file.  I give up."
