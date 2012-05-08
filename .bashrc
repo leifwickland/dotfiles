@@ -46,10 +46,31 @@ alias cd......='cd ../../../../..'
 alias cd.......='cd ../../../../../..'
 alias cd........='cd ../../../../../../..'
 
-
 # Roughly the equivalent of: 
 #   git diff -no-ext-diff --relative --name-only
 alias cvsdiff='cvs -q diff | grep ^Index: | sed -re "s/^Index: //"'
+
+function cvsrevert() {
+  if [ ! -d "CVS" ]; then
+    echo "You're not in a CVS dir. I quit."
+  else 
+    while [ $# -gt 0 ]; do
+      if [ -f $1 ]; then 
+        echo "Reverting $1..."
+        mv $1 $1.bak
+        if [ `cvs up $1 2>&1 | grep was.lost | wc -l` -eq 1 ]; then
+          rm $1.bak
+        else
+          mv $1.bak $1
+          echo "Failed to cvs up $1. Restored original."
+        fi
+      else 
+        echo "Not messing with $1 because it doesn't appear to be a file."
+      fi
+      shift
+    done
+  fi
+}
 
 # The following PS1 depends on stuff defined in .git-completion.sh
 source ~/.git-completion.sh
