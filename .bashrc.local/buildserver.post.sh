@@ -31,8 +31,14 @@ pathmunge "/nfs/local/linux/gcc-4.2.2/bin"
 # For a reaon I don't understand, the build servers don't drop me into my home directory the way I'd like.
 cd $HOME
 
+makecpwithpapi() {
+  if [ -d "agedatabase" -a -d "techmail" ]; then
+    nice -n 5 make -j 12 PAPI=Y PAPI_MODULES=ConnectPHP clean depend all
+  else
+    echo "You're in the wrong directory."
+  fi
+}
 
-export RUBY_BASE_PATH=/nfs/users/rnw/lwickland/.ruby-1.6.8
 
 export IFDIR=/home/httpd/cgi-bin/leif.cfg/
 export LOG=$IFDIR/log/
