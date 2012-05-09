@@ -12,7 +12,7 @@ object M {
     var currentKey: String = null
     var currentValue: String = null
     def print = if (currentKey != null) println(" %s %s".format(currentKey, currentValue))
-      io.Source.fromFile("siteconfig-scan.table").getLines.foreach { line =>
+      io.Source.fromFile(args(0)).getLines.foreach { line =>
       newLinePattern.findFirstMatchIn(line) match {
         case Some(m) => {
           print
