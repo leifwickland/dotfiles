@@ -1,3 +1,7 @@
+#!/bin/sh
+exec scala $0 $*
+::!#
+
 // A scala script to unwrap the output of hbase scan.  Assumes that HBase keys contain no spaces.
 object M {
   def main(args: Array[String]) {
