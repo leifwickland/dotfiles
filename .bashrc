@@ -104,6 +104,9 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# I have trouble with vim's attempts to connect to X disconnecting my terminal.
+alias vi="vim -X"
+alias vim="vim -X"
 export EDITOR="vim -X"
 export SVN_EDITOR="vim -X"
 
