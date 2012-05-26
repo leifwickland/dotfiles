@@ -8,19 +8,15 @@ alias vim='vim -X'
 #The bottom of the list appears last in the search order
 pathmunge "/bin"
 pathmunge "/sbin"
-pathmunge "/usr/X11R6/bin"
 pathmunge "/usr/bin"
 pathmunge "/usr/local/bin"
 pathmunge "/usr/local/sbin"
 pathmunge "/usr/sbin"
-pathmunge "~/.ruby-1.6.8/usr/local/bin"
 pathmunge "~/src/trunk/bin/linux_mysql"
 pathmunge "/nfs/local/generic/tools"
 pathmunge "/nfs/local/linux/bin"
-pathmunge "/nfs/local/linux/insure/bin.linux2"
 pathmunge "/home/mysql/current/bin/"
 pathmunge "/nfs/local/linux/jdk/1.6/current/bin/"
-pathmunge "/nfs/local/linux/libmemcached/0.35/bin/"
 pathmunge "/nfs/local/linux/git/current/bin"
 pathmunge "/nfs/project/aarnone/tig/install/bin"
 pathmunge "/nfs/project/aarnone/git/install/bin"
@@ -35,8 +31,14 @@ pathmunge "/nfs/local/linux/gcc-4.2.2/bin"
 # For a reaon I don't understand, the build servers don't drop me into my home directory the way I'd like.
 cd $HOME
 
+makecpwithpapi() {
+  if [ -d "agedatabase" -a -d "techmail" ]; then
+    nice -n 5 make -j 12 PAPI=Y PAPI_MODULES=ConnectPHP clean depend all
+  else
+    echo "You're in the wrong directory."
+  fi
+}
 
-export RUBY_BASE_PATH=/nfs/users/rnw/lwickland/.ruby-1.6.8
 
 export IFDIR=/home/httpd/cgi-bin/leif.cfg/
 export LOG=$IFDIR/log/
