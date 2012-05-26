@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Changes the date to the current momment of all commits which have not been pushed to origin.
+# Changes the date to the current moment of all commits which have not been pushed to origin.
 
 # Stolen from: http://repo.or.cz/w/git.git/blob/HEAD:/contrib/completion/git-completion.bash#l75
 __gitdir()
