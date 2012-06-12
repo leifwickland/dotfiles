@@ -36,6 +36,9 @@ Bundle 'git://github.com/rson/vim-conque'
 " Beautify Javascript. Clone of jsbeautify.org.
 Bundle 'git://github.com/vim-scripts/jsbeautify'
 
+"Compiler support for Mono's C# compiler, gmcs
+Bundle 'git://github.com/vim-scripts/gmcs.vim'
+
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
 " Bundle 'MarcWeber/vim-addon-completion'
