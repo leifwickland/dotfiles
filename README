@@ -1,7 +1,7 @@
 1. scp -r .ssh $REMOTE:.   # From already an setup box
 2. ssh $REMOTE
 3. git clone git@github.com:leifwickland/dotfiles.git
-4. mv dotfiles/.* dotfiles/*.* dotfiles/*  ~   # .ssh, ., and .. will fail.  That's fine.
+4. mv dotfiles/.[a-zA-Z0-9_]* dotfiles/*.* dotfiles/*  ~   # .ssh, ., and .. will fail.  That's fine.
 5. exit
 6. ssh $REMOTE
 7. rm -r ~/dotfiles
