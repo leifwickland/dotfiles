@@ -36,7 +36,7 @@ if [ "$(__isRebase)" -eq 0 ]; then
   echo "To proceed, press 'y', then modify all the lines to begin with 'e' in the interactive editor."
   echo ""
   echo -n "Modify all unpushed commits to have the current time? (y/N) "
-  read -N1 i
+  read -n1 i
   echo "I: '$i'"
   if [ "$i" != "y" ]; then 
     exit
@@ -45,7 +45,13 @@ if [ "$(__isRebase)" -eq 0 ]; then
 fi
 
 until [ "$(__isRebase)" -eq 0 ]; do
-  git commit --amend  --date="`date +%s`" --message="`git show | grep '^    ' | sed 's/^    //'`" || exit
+  COMMIT=`git show`
+  if [ 1 -ne `echo "$COMMIT" | head -n 1 | grep ^commit | wc -l` ]; then
+    echo "I couldn't figure out what the commit message is.  Abort the rebase!"
+    exit
+  fi
+  COMMENT="`echo "$COMMIT" | tail -n +5 | sed -nre 's/^    (.*)/\1/p;/^$/q'`"
+  git commit --amend  --date="`date +%s`" --message="$COMMENT" || exit
   git rebase --continue || exit
 done
 
