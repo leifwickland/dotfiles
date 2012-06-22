@@ -18,4 +18,4 @@ if [ ! -f "$HOME/.netrc" ]; then
   exit 1
 fi
 
-/nfs/local/linux/bin/curl -s --insecure --netrc "$RSS_URL" | sed -re 's@<title>|</entry>@\n@g' | grep -m 1 "^$PHASE $PROJECT" | sed -re "s@^$PHASE $PROJECT.* [(]([^)]+)[)]@\1@" -e 's@</title>@@' -e 's@<link type="[^"]*" href="([^"]*)".*@\t\1@'
+curl -s --insecure --netrc "$RSS_URL" | sed -re 's@<title>|</entry>@\n@g' | grep -m 1 "^$PHASE $PROJECT" | sed -re "s@^$PHASE $PROJECT.* [(]([^)]+)[)]@\1@" -e 's@</title>@@' -e 's@<link type="[^"]*" href="([^"]*)".*@\t\1@'

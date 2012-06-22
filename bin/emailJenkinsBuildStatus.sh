@@ -56,7 +56,7 @@ if [ $? -ne 0 ]; then
   echo "need to email"
   PLAIN_CONSOLE_OUTPUT_URL="${LINK}consoleText"
   echo "PLAIN_CONSOLE_OUTPUT_URL=$PLAIN_CONSOLE_OUTPUT_URL"
-  CONSOLE_FETCH_CMD="/nfs/local/linux/bin/curl -v --insecure --netrc \"$PLAIN_CONSOLE_OUTPUT_URL\""
+  CONSOLE_FETCH_CMD="curl -v --insecure --netrc \"$PLAIN_CONSOLE_OUTPUT_URL\""
   echo "Running CONSOLE_FETCH_CMD=$CONSOLE_FETCH_CMD"
   # Run it in a new shell because curl is wigging out about libcurl not supporting https otherwise. Completely insane, but works.
   CONSOLE_OUTPUT=$(bash -c "$CONSOLE_FETCH_CMD")
