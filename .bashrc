@@ -28,6 +28,7 @@ run_local_bashrc "pre"
 alias amke='make'
 alias jbos='jobs'
 alias mdkir='mkdir'
+alias get='git'
 
 export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
 alias ls='ls --color=auto'
