@@ -85,6 +85,11 @@ endif
 " set the location swap files are written to
 set directory=~/.vim/.swp
 
+if version >= 730
+  " Let vim create undo files so changes can be undone across file reloads
+  set undofile
+endif
+
 " Fiddle with indentation options.
 set cino+=(0,g0,:0
 
