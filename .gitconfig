@@ -46,6 +46,9 @@
     reb = rebase -i origin/master
     now = !git commit --amend --date=`date +%s`
     con = rebase --continue
+
+    ; Enable rebase on pull (instead of merge on pull) for the current checkout
+    enableRebasePull = config branch.master.rebase true
 [diff]
     external = ~/bin/git_diff_wrapper
 [pager]
@@ -54,3 +57,5 @@
     diff = 
 [color]
     ui = auto
+[branch] 
+    autosetuprebase = always ; When creating a clone, configure it to rebase on pull (instead of merge on pull).  Avoids merge commits.
