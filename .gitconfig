@@ -7,6 +7,7 @@
     ; Laziness is a virtue; short aliases
     st = status
     ci = commit
+    cA = commit -a --amend -C HEAD ; Commit, merging into the previous commit and reusing its message. Named based on fugitive analog.
     br = branch
     co = checkout
     pp = !echo "Pulling" && git pull && echo "" && echo "Pushing" && git push
