@@ -76,7 +76,7 @@ function cvsrevert() {
 # Prints the total size of the select files
 filesize() { 
   ls -l $* 
-  ls -lt $* | awk '{tot += $5} END {tot=tot/1024 ; printf(" TOTAL SIZE (kb): %4.2f MB\n",tot/1024)}'
+  ls -lt $* | awk '{kb += $5} END {kb=kb/1024 ; printf(" TOTAL SIZE: %4.2f MB\n",kb/1024)}'
 }
 
 # The following PS1 depends on stuff defined in .git-completion.sh
