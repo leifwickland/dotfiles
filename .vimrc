@@ -1,4 +1,6 @@
 " Begin Vundle setup
+"
+"
 syntax on
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -39,9 +41,8 @@ Bundle 'git://github.com/vim-scripts/jsbeautify'
 "Compiler support for Mono's C# compiler, gmcs
 Bundle 'git://github.com/vim-scripts/gmcs.vim'
 
+" Epic undo tree plugin.
 Bundle 'git://github.com/sjl/gundo.vim'
-
-Bundle 'git://github.com/vim-scripts/Rainbow-Parenthesis'
 
 " I wish Ensime worked out of the box! _sigh_
 " Bundle 'MarcWeber/vim-addon-async'
