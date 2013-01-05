@@ -1,69 +1,80 @@
-" Begin Vundle setup
+" Begin NeoBundle setup
 "
 "
-syntax on
-set nocompatible               " be iMproved
-filetype off                   " required!
-set nomodeline modelines=0
+set nocompatible               " Be iMproved
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" After install, cd ~/.vim/bundle/vimproc; make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
+
+NeoBundle 'Shougo/vimshell'
 
 " let Vundle manage Vundle. Required!
-Bundle 'git://github.com/gmarik/vundle'
+NeoBundle 'git://github.com/gmarik/vundle'
 
 " Scala support
-Bundle 'git://github.com/leifwickland/vim-scala-ftplugin'
-Bundle 'git://github.com/leifwickland/scala-vim-support'
+NeoBundle 'git://github.com/leifwickland/vim-scala-ftplugin'
+NeoBundle 'git://github.com/leifwickland/scala-vim-support'
 
 " Dear self, you always forget that this plugin is broken because it has a .vim file in DOS format.
 " I ended up making my own repo so I could fix that irritation.
-Bundle 'git://github.com/leifwickland/cvsmenu.vim'
+NeoBundle 'git://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
-Bundle 'git://github.com/tpope/vim-fugitive'
+NeoBundle 'git://github.com/tpope/vim-fugitive'
 
 " Adds a sidebar displaying the current file's methods, members, etc.
-Bundle 'git@github.com:leifwickland/tagbar.git'
+NeoBundle 'git@github.com:leifwickland/tagbar.git'
 
 " PHP support
-Bundle 'git://github.com/leifwickland/vim-php-support'
+NeoBundle 'git://github.com/leifwickland/vim-php-support'
 
 " Markdown support
-Bundle 'git://github.com/tpope/vim-markdown'
+NeoBundle 'git://github.com/tpope/vim-markdown'
 
 " Run a proper terminal within vim!
-Bundle 'git://github.com/rson/vim-conque'
+" NeoBundle 'git://github.com/rson/vim-conque'
 
 " Beautify Javascript. Clone of jsbeautify.org.
-Bundle 'git://github.com/vim-scripts/jsbeautify'
+NeoBundle 'git://github.com/vim-scripts/jsbeautify'
 
 "Compiler support for Mono's C# compiler, gmcs
-Bundle 'git://github.com/vim-scripts/gmcs.vim'
+NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 
-" Epic undo tree plugin.
-Bundle 'git://github.com/sjl/gundo.vim'
+" Epic plugin for displaying VIM's undo tree.
+NeoBundle 'git://github.com/sjl/gundo.vim'
 
-" I wish Ensime worked out of the box! _sigh_
-" Bundle 'MarcWeber/vim-addon-async'
-" Bundle 'MarcWeber/vim-addon-completion'
-" Bundle 'MarcWeber/vim-addon-json-encoding'
-" Bundle 'MarcWeber/ensime', {'rtp': 'vim/'}
-
-filetype plugin indent on     " required!
-" End Vundle setup
-
-" Brief Vundle help
-" :BundleInstall  - install bundles (won't update installed)
-" :BundleInstall! - update if installed
+" Support for Ensime/vimside
+"NeoBundle 'git://github.com/megaannum/self'
+"NeoBundle 'git://github.com/megaannum/forms'
 "
-" :Bundles foo    - search for foo
-" :Bundles! foo   - refresh cached list and search for foo
+" Ensime (scala) support
+"NeoBundle 'git://github.com/megaannum/vimside'
+
+filetype plugin indent on     " Required!
 "
-" :BundleClean    - confirm removal of unused bundles
-" :BundleClean!   - remove without confirmation
-"
-" see :h vundle for more details
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+        \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
+  "finish
+endif
+
+" End NeoBundle setup
 
 " Highlight search results. Search incrementally as I type.
 set hlsearch incsearch
