@@ -76,6 +76,8 @@ endif
 
 " End NeoBundle setup
 
+syntax on
+
 " Highlight search results. Search incrementally as I type.
 set hlsearch incsearch
 
