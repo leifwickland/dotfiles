@@ -52,9 +52,14 @@ NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 " Epic plugin for displaying VIM's undo tree.
 NeoBundle 'git://github.com/sjl/gundo.vim'
 
-" Support for Ensime/vimside
+" Dependencies for vimside
+" Feb 12, 2013. Defeated again. Ensime reports errors when I ask it to do a
+" simple refactor.
+"NeoBundle 'git://github.com/Shougo/vimproc.git'
+"NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'git://github.com/megaannum/self'
 "NeoBundle 'git://github.com/megaannum/forms'
+"NeoBundle 'git://github.com/aemoncannon/ensime.git'
 "
 " Ensime (scala) support
 "NeoBundle 'git://github.com/megaannum/vimside'
