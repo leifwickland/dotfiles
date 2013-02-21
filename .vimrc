@@ -40,6 +40,14 @@ NeoBundle 'git://github.com/leifwickland/vim-php-support'
 " Markdown support
 NeoBundle 'git://github.com/tpope/vim-markdown'
 
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+NeoBundle 'git://github.com/kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
+let g:ctrlp_extensions = ['tag']
+
 " Run a proper terminal within vim!
 " NeoBundle 'git://github.com/rson/vim-conque'
 
@@ -82,6 +90,13 @@ endif
 " End NeoBundle setup
 
 syntax on
+
+set wildignore+=*.class 
+set wildignore+=*/target/*
+set wildignore+=*/.git/*
+set wildignore+=*/.svn/*
+set wildignore+=*/.hg/*
+set wildignore+=*/cvs/*
 
 " Highlight search results. Search incrementally as I type.
 set hlsearch incsearch
