@@ -60,3 +60,5 @@
     ui = auto
 [branch] 
     autosetuprebase = always ; When creating a clone, configure it to rebase on pull (instead of merge on pull).  Avoids merge commits.
+[push]
+	default = simple ; Default to only pushing the current branch
