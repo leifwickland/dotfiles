@@ -17,6 +17,8 @@ NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'Shougo/vimshell'
 
+NeoBundle 'airblade/vim-gitgutter'
+
 " let Vundle manage Vundle. Required!
 NeoBundle 'git://github.com/gmarik/vundle'
 
