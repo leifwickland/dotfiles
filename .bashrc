@@ -3,13 +3,12 @@ if [ -f /etc/bashrc ]; then source /etc/bashrc; fi
 # Stolen from /etc/profile in RHEL 7.3
 # Lets you add to PATH without duplicating
 pathmunge () {
-	if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
-	   if [ "$2" = "after" ] ; then
-	      PATH=$PATH:$1
-	   else
-	      PATH=$1:$PATH
-	   fi
-	fi
+  cleanPath="$(echo "$PATH" | sed -r -e "s@(^|:)$1/*(:|\$)@:@g" -e 's/^://' -e 's/:$//' -e 's/::/:/g')"
+  if [ "$2" = "after" ] ; then
+     PATH="$cleanPath:$1"
+  else
+     PATH="$1:$cleanPath"
+  fi
 }
 
 run_local_bashrc() {
@@ -126,8 +125,6 @@ export HISTTIMEFORMAT='%F %T '
 # Complete ssh hostnames by rummaging around in bash history. Idea from http://b.sricola.com/post/16174981053/bash-autocomplete-for-ssh
 # Technically this version is wrong because it always grabs the last word on the line, but that was the easiest way to skip past options.
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
-
-pathmunge "~/bin"
 
 # Dumps the current git branch.
 gitbr() {
@@ -287,4 +284,5 @@ ctarj() {
 }
 
 run_local_bashrc "post"
+pathmunge "~/bin" # Ensure ~/bin is first in my path.
 unset pathmunge
