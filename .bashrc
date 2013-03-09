@@ -78,18 +78,9 @@ filesize() {
   ls -lt $* | awk '{kb += $5} END {kb=kb/1024 ; printf(" TOTAL SIZE: %4.2f MB\n",kb/1024)}'
 }
 
-# The following PS1 depends on stuff defined in .git-completion.sh
 source ~/.git-completion.sh
-__truncated_git_ps1() {
-  g=$(__git_ps1)
-  # __get_ps1 returns a string like: " (branchName)"
-  # The following syntax doesn't work in Bash 3.  Don't care.
-  let e=${#g}-3 #so strip the leading space and both parens
-  if [ $e -gt 0 ]; then # If we're not in a git repo, don't put mention it.
-    echo -n "[$(truncateWithEllipsis ${g:2:e} 20)] "
-  fi
-}
-export PS1='\n\u@\h $(__truncated_git_ps1)\w\$ '
+source ~/.git-prompt.sh
+PS1='\n\u@\h $(__git_ps1 "[%s] ")\w\$ '
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
 shopt -s histappend # Append to, rather than overwrite, the history file when bash closes
