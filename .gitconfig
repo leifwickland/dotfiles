@@ -45,7 +45,7 @@
 
     ; Rebase steps
     reb = rebase -i origin/master
-    now = !git commit --amend --date=`date +%s`
+    now = !export GIT_COMMITTER_DATE="$(date +%s)" && git commit --amend --date="$GIT_COMMITTER_DATE" -C HEAD
     con = rebase --continue
 
     ; Enable rebase on pull (instead of merge on pull) for the current checkout
