@@ -7,7 +7,7 @@
     ; Laziness is a virtue; short aliases
     st = status
     ci = commit
-    cA = commit -a --amend -C HEAD ; Commit, merging into the previous commit and reusing its message. Named based on fugitive analog.
+    cA = commit --amend -C HEAD ; Commit, merging into the previous commit and reusing its message. Named based on fugitive analog.
     br = branch
     co = checkout
     pp = !echo "Pulling" && git pull && echo "" && echo "Pushing" && git push
@@ -40,6 +40,7 @@
 
     lg = log -p
     logtree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative
+    logtreenocolor = log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --topo-order --date=relative
 
     dryad = add -n . ; Oh, mythological puns, how you slay me.
 
