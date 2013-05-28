@@ -30,10 +30,6 @@ fi
 STATUS=$(echo "$RESULT" | cut -f 1)
 LINK=$(echo "$RESULT" | cut -f 2)
 
-echo "STATUS >$STATUS<"
-echo "LINK >$LINK<"
-echo "LINKFILE contains: `cat $LINKFILE`"
-
 LINKFILE="$DIR/jenkins.${PHASE}.${PROJECT}.lastlink"
 NEWLINKFILE="${LINKFILE}.new"
 
