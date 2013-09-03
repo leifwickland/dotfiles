@@ -91,7 +91,9 @@ shopt -s globstar 2>/dev/null # Make ** do a recursive wildcard.
 shopt -s checkwinsize # Checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS.
 
 set -o vi # use vi style command editing
-stty -ixon # Don't lock up the terminal when Ctrl-S is pressed.
+if [ "$TERM" != "dumb" ]; then
+  stty -ixon # Don't lock up the terminal when Ctrl-S is pressed.
+fi
 
 # Enable colored man pages. Stolen from http://fahdshariff.blogspot.com/2011/03/my-bash-profile-part-i.html
 export LESS_TERMCAP_mb=$'\E[01;31m'
