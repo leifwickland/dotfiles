@@ -12,13 +12,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" After install, cd ~/.vim/bundle/vimproc; make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
+" After install, cd ~/.vim/bundle/vimproc.vim; make -f your_machines_makefile
+NeoBundle 'git://github.com/Shougo/vimproc.vim'
 
-NeoBundle 'Shougo/vimshell'
-
-" let Vundle manage Vundle. Required!
-NeoBundle 'git://github.com/gmarik/vundle'
+NeoBundle 'git://github.com/Shougo/vimshell.vim'
 
 " Scala support
 NeoBundle 'git://github.com/leifwickland/vim-scala-ftplugin'
