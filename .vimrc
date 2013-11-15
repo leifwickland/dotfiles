@@ -17,6 +17,9 @@ NeoBundle 'git://github.com/Shougo/vimproc.vim'
 
 NeoBundle 'git://github.com/Shougo/vimshell.vim'
 
+NeoBundle 'git://github.com/scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list=1
+
 " Scala support
 NeoBundle 'git://github.com/leifwickland/vim-scala-ftplugin'
 NeoBundle 'git://github.com/leifwickland/scala-vim-support'
