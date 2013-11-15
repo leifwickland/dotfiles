@@ -278,5 +278,5 @@ ctarj() {
 }
 
 run_local_bashrc "post"
-pathmunge "~/bin" # Ensure ~/bin is first in my path.
+pathmunge "$HOME/bin" # Ensure ~/bin is first in my path.
 unset pathmunge
