@@ -13,10 +13,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " After install, cd ~/.vim/bundle/vimproc.vim; make -f your_machines_makefile
+" Allows Neobundle to update itself in parallel.
 NeoBundle 'git://github.com/Shougo/vimproc.vim'
 
-NeoBundle 'git://github.com/Shougo/vimshell.vim'
-
+" Highlights syntax errors on file save.
 NeoBundle 'git://github.com/scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list=1
 
@@ -30,9 +30,6 @@ NeoBundle 'git://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
 NeoBundle 'git://github.com/tpope/vim-fugitive'
-
-" Adds a sidebar displaying the current file's methods, members, etc.
-NeoBundle 'git@github.com:leifwickland/tagbar.git'
 
 " PHP support
 NeoBundle 'git://github.com/leifwickland/vim-php-support'
@@ -57,8 +54,8 @@ NeoBundle 'git://github.com/vim-scripts/jsbeautify'
 "Compiler support for Mono's C# compiler, gmcs
 NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 
-" Epic plugin for displaying VIM's undo tree.
-NeoBundle 'git://github.com/sjl/gundo.vim'
+" Fancy status line
+NeoBundle 'git://github.com/bling/vim-airline'
 
 " Dependencies for vimside
 " Feb 12, 2013. Defeated again. Ensime reports errors when I ask it to do a
