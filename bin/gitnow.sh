@@ -41,7 +41,7 @@ if [ "$(__isRebase)" -eq 0 ]; then
   if [ "$i" != "y" ]; then 
     exit
   fi
-  git rebase -i origin/master
+  git rebase -i
 fi
 
 until [ "$(__isRebase)" -eq 0 ]; do
