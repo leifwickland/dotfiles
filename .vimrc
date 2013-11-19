@@ -44,6 +44,8 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 let g:ctrlp_extensions = ['tag']
+nnoremap <C-I> :CtrlPTag<cr>
+nnoremap <C-U> :CtrlPMixed<cr>
 
 " Run a proper terminal within vim!
 " NeoBundle 'git://github.com/rson/vim-conque'
@@ -56,6 +58,9 @@ NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 
 " Fancy status line
 NeoBundle 'git://github.com/bling/vim-airline'
+
+" Displays the names of open buffers in the airline status line.
+NeoBundle 'git://github.com/bling/vim-bufferline'
 
 " Dependencies for vimside
 " Feb 12, 2013. Defeated again. Ensime reports errors when I ask it to do a
