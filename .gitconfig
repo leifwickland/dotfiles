@@ -45,7 +45,7 @@
     dryad = add -n . ; Oh, mythological puns, how you slay me.
 
     ; Rebase steps
-    reb = rebase -i origin/master
+    reb = rebase -i
     now = !export GIT_COMMITTER_DATE="$(date +%s)" && git commit --amend --date="$GIT_COMMITTER_DATE" -C HEAD
     con = rebase --continue
 
