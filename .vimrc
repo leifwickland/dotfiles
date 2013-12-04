@@ -12,13 +12,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" After install, cd ~/.vim/bundle/vimproc; make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
+" After install, cd ~/.vim/bundle/vimproc.vim; make -f your_machines_makefile
+" Allows Neobundle to update itself in parallel.
+NeoBundle 'git://github.com/Shougo/vimproc.vim'
 
-NeoBundle 'Shougo/vimshell'
-
-" let Vundle manage Vundle. Required!
-NeoBundle 'git://github.com/gmarik/vundle'
+" Highlights syntax errors on file save.
+NeoBundle 'git://github.com/scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list=1
 
 " Scala support
 NeoBundle 'git://github.com/leifwickland/vim-scala-ftplugin'
@@ -30,9 +30,6 @@ NeoBundle 'git://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
 NeoBundle 'git://github.com/tpope/vim-fugitive'
-
-" Adds a sidebar displaying the current file's methods, members, etc.
-NeoBundle 'git@github.com:leifwickland/tagbar.git'
 
 " PHP support
 NeoBundle 'git://github.com/leifwickland/vim-php-support'
@@ -47,6 +44,8 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 let g:ctrlp_extensions = ['tag']
+nnoremap <C-I> :CtrlPTag<cr>
+nnoremap <C-U> :CtrlPMixed<cr>
 
 " Run a proper terminal within vim!
 " NeoBundle 'git://github.com/rson/vim-conque'
@@ -57,8 +56,11 @@ NeoBundle 'git://github.com/vim-scripts/jsbeautify'
 "Compiler support for Mono's C# compiler, gmcs
 NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 
-" Epic plugin for displaying VIM's undo tree.
-NeoBundle 'git://github.com/sjl/gundo.vim'
+" Fancy status line
+NeoBundle 'git://github.com/bling/vim-airline'
+
+" Displays the names of open buffers in the airline status line.
+NeoBundle 'git://github.com/bling/vim-bufferline'
 
 " Dependencies for vimside
 " Feb 12, 2013. Defeated again. Ensime reports errors when I ask it to do a

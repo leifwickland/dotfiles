@@ -7,6 +7,6 @@
 7. rm -r ~/dotfiles
 8. for d in ~/.vim/.undo ~/.vim/.swp ~/.vim/bundle; do mkdir -p $d; done
 9. cd ~/.vim/bundle
-10. git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-11. vim -c BundleInstall
+10. git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+11. vim -c NeoBundleInstall
 12. dos2unix cvsmenu.vim/plugin/cvsmenu.vim
