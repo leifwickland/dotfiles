@@ -10,3 +10,4 @@
 10. git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 11. vim -c NeoBundleInstall
 12. dos2unix cvsmenu.vim/plugin/cvsmenu.vim
+13. cd vimproc.vim; make
