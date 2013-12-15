@@ -44,8 +44,7 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 let g:ctrlp_extensions = ['tag']
-nnoremap <C-I> :CtrlPTag<cr>
-nnoremap <C-U> :CtrlPMixed<cr>
+nnoremap <C-U> :CtrlPTag<cr>
 
 " Run a proper terminal within vim!
 " NeoBundle 'git://github.com/rson/vim-conque'
