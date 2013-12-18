@@ -115,7 +115,9 @@ if has("gui_running")
 
   set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style
 
-  au GUIEnter * simalt ~x " Maximize GVim on startup.
+  if has('win32')
+    au GUIEnter * simalt ~x " Maximize GVim on startup in Windows
+  endif
 else
   " I really like how this looks in Putty and really hate how it looks in gvim
   colorscheme desert
