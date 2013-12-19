@@ -1,0 +1,21 @@
+#!/bin/bash
+PORT=9764
+chromeProcesses=$(ps aux | grep [g]oogle.chrome.chrome)
+echo "$chromeProcesses" | grep .
+if [ $? -eq 0 ]; then
+  echo "Chrome is still running. Kill it."
+  exit
+fi
+pid=$(sudo netstat -nlp | grep ":$PORT" | grep '^tcp\b' | sed -nre 's@.*LISTEN[[:space:]]+([0-9]+).*@\1@p')
+echo "$pid" | grep . > /dev/null # Check if pid contains anything.
+if [ $? -eq 0 ]; then 
+  #echo "SOCKS proxy is already running as $pid. To kill it, run:"
+  #echo "  kill -9 $pid"
+  echo "SOCKS proxy is already running as $pid. I'm killing it."
+  kill -9 "$pid"
+  sleep 1s
+fi
+ssh -vND $PORT teton &
+PROXY="--proxy-server=socks4://localhost:$PORT"
+google-chrome "$PROXY" &
+google-chrome --app=https://mail.google.com/mail/u/0 "$PROXY" &
