@@ -16,6 +16,7 @@ if [ $? -eq 0 ]; then
   sleep 1s
 fi
 ssh -vND $PORT teton &
-PROXY="--proxy-server=socks4://localhost:$PORT"
-google-chrome "$PROXY" &
-google-chrome --app=https://mail.google.com/mail/u/0 "$PROXY" &
+PROXY="--proxy-server=socks://localhost:$PORT"
+DO_REMOTE_DNS="--host-resolver-rules=MAP * 0.0.0.0"
+google-chrome "$DO_REMOTE_DNS" "$PROXY" &
+google-chrome "$DO_REMOTE_DNS" --app=https://mail.google.com/mail/u/0 "$PROXY" &
