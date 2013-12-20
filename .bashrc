@@ -115,6 +115,8 @@ export HISTFILESIZE=99999
 export HISTSIZE=$HISTFILESIZE
 export HISTTIMEFORMAT='%F %T '
 
+export GOPATH="$HOME/src/go"
+
 # Complete ssh hostnames by rummaging around in bash history. Idea from http://b.sricola.com/post/16174981053/bash-autocomplete-for-ssh
 # Technically this version is wrong because it always grabs the last word on the line, but that was the easiest way to skip past options.
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
