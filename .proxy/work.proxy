@@ -10,15 +10,19 @@ if [ -z "$GOPATH" ]; then
   die "You must set the GOPATH variable. It is where go programs will be downloaded to.  I suggest '$HOME/src/go'."
 fi
 anyProxyUrl="github.com/ryanchapman/go-any-proxy"
-echo "Downloading any proxy from ${anyProxyUrl}..."
-go get -u "$anyProxyUrl" 
 anyProxyDir="$GOPATH/src/$anyProxyUrl"
-[ -d "$anyProxyDir" ] || die "I can't find the any proxy directory. There should be a $anyProxyDir."
-[ -x "$anyProxyDir/make.bash" ] || die "I can't find the any proxy build script.  It should be at $anyProxyDir/make.bash."
-cd "$anyProxyDir"
-./make.bash || die "Building any proxy failed. I'm sorry"
+if [ ! -d "$anyProxyDir" ] ; then 
+  echo "Downloading any proxy from ${anyProxyUrl}..."
+  go get -u "$anyProxyUrl" 
+  [ -d "$anyProxyDir" ] || die "I can't find the any proxy directory. There should be a $anyProxyDir."
+fi
 anyProxyExec="$anyProxyDir/any_proxy"
-[ -x "$anyProxyExec" ] || die "After building I couldn't find an any proxy executable at $anyProxyExec."
+if [ ! -x "$anyProxyExec" ] ; then 
+[ -x "$anyProxyDir/make.bash" ] || die "I can't find the any proxy build script.  It should be at $anyProxyDir/make.bash."
+  cd "$anyProxyDir"
+  ./make.bash || die "Building any proxy failed. I'm sorry"
+  [ -x "$anyProxyExec" ] || die "After building I couldn't find an any proxy executable at $anyProxyExec."
+fi
 if [ $(pgrep any_proxy | wc -l) != 0 ]; then
   echo "Attempting to kill running any_proxy process..."
   sudo killall any_proxy
