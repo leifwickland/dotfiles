@@ -62,6 +62,9 @@ NeoBundle 'git://github.com/bling/vim-airline'
 " Displays the names of open buffers in the airline status line.
 NeoBundle 'git://github.com/bling/vim-bufferline'
 
+" Improves the directory listing shown by :Explore
+NeoBundle 'git://github.com/tpope/vim-vinegar'
+
 " Dependencies for vimside
 " Feb 12, 2013. Defeated again. Ensime reports errors when I ask it to do a
 " simple refactor.
