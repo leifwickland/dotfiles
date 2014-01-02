@@ -45,6 +45,7 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
 let g:ctrlp_extensions = ['tag']
+let g:ctrlp_working_path_mode = 'w' " Search from the working directory instead of relative to the file.
 nnoremap <C-U> :CtrlPTag<cr>
 
 " Run a proper terminal within vim!
@@ -57,10 +58,18 @@ NeoBundle 'git://github.com/vim-scripts/jsbeautify'
 NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 
 " Fancy status line
-NeoBundle 'git://github.com/bling/vim-airline'
+"if has("gui_running")
+  NeoBundle 'git://github.com/bling/vim-airline'
+"endif
 
 " Displays the names of open buffers in the airline status line.
-NeoBundle 'git://github.com/bling/vim-bufferline'
+"if has("gui_running")
+"  NeoBundle 'git://github.com/bling/vim-bufferline'
+"endif
+
+" Solarized color schemes
+NeoBundle 'altercation/vim-colors-solarized'
+let g:solarized_contrast="high"
 
 " Improves the directory listing shown by :Explore
 NeoBundle 'git://github.com/tpope/vim-vinegar'
@@ -94,6 +103,10 @@ endif
 
 " End NeoBundle setup
 
+" I typically like my terminals to have light backgrounds
+set background=light
+
+syntax enable
 syntax on
 
 set wildignore+=*.class 
@@ -110,20 +123,22 @@ set hlsearch incsearch
 let g:ConqueTerm_ReadUnfocused = 1
 
 if has("gui_running")
-  set guioptions+=a
-  set guioptions-=T
-  set guioptions-=r
-  set guioptions-=l
-  set guioptions-=R
-  set guioptions-=L
+  set guioptions-=m " Don't display menu
+  set guioptions+=a " Allow vim to magically put things on the clipboard
+  set guioptions-=T " No toolbar
+  set guioptions-=rR " Hide scrollbar on right
+  set guioptions-=lL " Hide scrollbar on left
 
   set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style
 
   if has('win32')
     au GUIEnter * simalt ~x " Maximize GVim on startup in Windows
   endif
+  set background=light
+  colorscheme solarized
 else
   " I really like how this looks in Putty and really hate how it looks in gvim
+  let g:airline_theme='solarized'
   colorscheme desert
 endif
 
