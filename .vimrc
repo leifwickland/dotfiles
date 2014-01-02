@@ -109,7 +109,7 @@ set background=light
 syntax enable
 syntax on
 
-set wildignore+=*.class 
+set wildignore+=*.class
 set wildignore+=*/target/*
 set wildignore+=*/.git/*
 set wildignore+=*/.svn/*

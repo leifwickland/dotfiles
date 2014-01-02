@@ -8,7 +8,7 @@ if [ $? -eq 0 ]; then
 fi
 pid=$(sudo netstat -nlp | grep ":$PORT" | grep '^tcp\b' | sed -nre 's@.*LISTEN[[:space:]]+([0-9]+).*@\1@p')
 echo "$pid" | grep . > /dev/null # Check if pid contains anything.
-if [ $? -eq 0 ]; then 
+if [ $? -eq 0 ]; then
   #echo "SOCKS proxy is already running as $pid. To kill it, run:"
   #echo "  kill -9 $pid"
   echo "SOCKS proxy is already running as $pid. I'm killing it."

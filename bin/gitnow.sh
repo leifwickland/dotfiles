@@ -24,7 +24,7 @@ g="$(__gitdir)"
 __isRebase() {
   if [ -f "$g/rebase-merge/interactive" ]; then
     echo 1
-  else 
+  else
     echo 0
   fi
 }
@@ -38,7 +38,7 @@ if [ "$(__isRebase)" -eq 0 ]; then
   echo -n "Modify all unpushed commits to have the current time? (y/N) "
   read -n1 i
   echo "I: '$i'"
-  if [ "$i" != "y" ]; then 
+  if [ "$i" != "y" ]; then
     exit
   fi
   git rebase -i

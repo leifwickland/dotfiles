@@ -3,10 +3,10 @@
 # Stolen from http://software.decisionsoft.com/software/xmlpp.pl
 #
 #  Copyright (c) 2002, DecisionSoft Limited All rights reserved.
-#  Please see: 
+#  Please see:
 #  http://software.decisionsoft.com/licence.html
 #  for more information.
-# 
+#
 
 # $Revision: 1.32 $
 #
@@ -38,7 +38,7 @@ if ($opt_s){
 
 # expect to find attributeOrdering.txt file in same directory
 # as xmlpp is being run from
-    
+
   my $scriptDir = $0;
   if ($scriptDir =~ m#/#){
     $scriptDir =~ s#/[^/]+$##;
@@ -46,22 +46,22 @@ if ($opt_s){
   else{
     $scriptDir =".";
   }
-    
+
   # get attribute ordering from external file
   if (open(SORTLIST, "<$scriptDir/attributeOrdering.txt")) {
     @sortlist = <SORTLIST>;
     chomp @sortlist;
     close (SORTLIST);
     @specialSort = grep(/^\w+/, @sortlist);
-  } 
-  else {      
+  }
+  else {
    print STDERR  "Could not open $scriptDir/attributeOrdering.txt: $!\nWARNING attribute sorting will only be alphabetic\n\n";
   }
 }
 
 
 # set line separator to ">" speeding up parsing of XML files
-# with no line breaks 
+# with no line breaks
 
 $/ = ">";
 
@@ -79,7 +79,7 @@ if ($opt_z && (!$filename or $filename eq '-')) {
 }
 
 if (!$opt_z && scalar(@ARGV) > 1) {
-    print STDERR "Warning: Multiple files specified without -z option\n"; 
+    print STDERR "Warning: Multiple files specified without -z option\n";
 }
 
 my $fh;
@@ -121,7 +121,7 @@ do {
                 }
             } elsif ($input =~ s/^<\/($re_name)\s*>(.*)$/$2/s) {
                 parseEnd($1);
-            } elsif ($input =~ s/^<!--(.*?)-->(.*)$/$2/s) { 
+            } elsif ($input =~ s/^<!--(.*?)-->(.*)$/$2/s) {
                 parseComment($1);
             } elsif ($input =~ s/^([^<]+)(.*)$/$2/s) {
                 parseDefault($1);
@@ -146,13 +146,13 @@ do {
     $fh->close();
 
     if (!$opt_z) {
-        if(!$opt_H){ 
+        if(!$opt_H){
             print "$output\n"
         } else {
             print html_escape($output)."\n"
         }
     } else {
-        if ($input) { 
+        if ($input) {
             print STDERR "Not overwriting file\n";
         } else {
             open FOUT,"> $filename" or die "Cannot overwrite file: $!";
@@ -167,7 +167,7 @@ do {
 } while (
     !$stdin && $opt_z && ($fh = open_next_file(\$filename))
   );
-  
+
 
 
 sub parseStart {
@@ -175,7 +175,7 @@ sub parseStart {
     my $selfclose = shift;
     my %attr = @_;
 
-    $textContent =~ s/\s+$//; 
+    $textContent =~ s/\s+$//;
     printContent($textContent);
 
     if($inAnnotation) {
@@ -224,7 +224,7 @@ sub parseStart {
       }
 
       # now read through the specialSort list backwards looking for
-      # any match in the needSpecialSort list. Unshift this onto the 
+      # any match in the needSpecialSort list. Unshift this onto the
       # front of the final array to maintain proper order.
       foreach my $attribute (reverse @specialSort){
         foreach (@needSpecialSort){
@@ -238,7 +238,7 @@ sub parseStart {
     }
 
     foreach my $attr (@k) {
-        # 
+        #
         # Remove (min|max)Occurs = 1 if schemaHackMode
         #
         if ($schemaHackMode and $attr =~ m/^(minOccurs|maxOccurs)$/ and $attr{$attr} eq "1") {
@@ -286,7 +286,7 @@ sub parseEnd {
     if ($lastTag == 0) {
         $output .= "\n";
         $output .= "  " x $indent;
-    } 
+    }
     $output .= "</$s>";
     $textContent = '';
     $lastTag = 0;
@@ -317,7 +317,7 @@ sub parseDoctype {
 }
 
 sub parseComment {
-    my $s = shift; 
+    my $s = shift;
     if($inAnnotation) { return }
     printContent($textContent,1);
     if ($s =~ /([^\<]*)(<.*>)(.*)/ms) {
@@ -345,7 +345,7 @@ sub printContent {
     my ($LF,$ret) = ("","");
 
     if ($s =~ m/\n\s*$/) {
-        $LF = "\n"; 
+        $LF = "\n";
     }
     if ($s =~ m/^[\s\n]*$/) {
         $ret = undef;

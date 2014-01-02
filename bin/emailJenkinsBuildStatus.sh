@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ $# -ne 7 ]; then 
+if [ $# -ne 7 ]; then
   echo ""
   echo "Wrong number of arguments. Read the source, Luke."
   echo "Example usage: $0 run_unit_tests ci-action-capture https://ci.example.com/jenkins/rssAll some.dude@example.com jenkins.monitor@example.com 'Jenkins Monitor' mail.server.example.com"
@@ -23,7 +23,7 @@ if [ ! -f "$HOME/.netrc" ]; then
 fi
 
 RESULT="`$DIR/getJenkinsBuildStatus.sh \"$PHASE\" \"$PROJECT\" \"$RSS_URL\"`"
-if [ $? -ne 0 ]; then 
+if [ $? -ne 0 ]; then
   echo "getJenkinsBuildStatus.sh returned an error. Bailing."
   exit 1
 fi
@@ -47,7 +47,7 @@ echo "$LINK" > "$NEWLINKFILE"
 diff --brief "$LINKFILE" "$NEWLINKFILE"
 
 # Did diff say the files differed?
-if [ $? -ne 0 ]; then 
+if [ $? -ne 0 ]; then
   mv "$NEWLINKFILE" "$LINKFILE"
   echo "need to email"
   PLAIN_CONSOLE_OUTPUT_URL="${LINK}consoleText"
@@ -66,7 +66,7 @@ else
   echo "The build's URL ($LINK) hasn't changed since the last email was sent. I'm done here."
 fi
 
-if [ "stable" == "$STATUS" -o "back to normal" == "$STATUS" ]; then 
+if [ "stable" == "$STATUS" -o "back to normal" == "$STATUS" ]; then
   # Jenkins does this really nice thing with the status so that when the build
   # goes from broken to fixed, the status is "fixed", but when there's more
   # than one successful build in a row, then the status is "stable".  Well, we
@@ -74,7 +74,7 @@ if [ "stable" == "$STATUS" -o "back to normal" == "$STATUS" ]; then
   # because they have all the different repos jammed into a single project, its
   # status is confusing.  It goes from broken to stable directly if another
   # repo build successfully when ours was broken.
-  # 
+  #
   # So to figure out if the previous statas was stable, I delete the linkfile.  I.e. the link file should only exist if the previous status was broken.
   rm "$LINKFILE"
 fi

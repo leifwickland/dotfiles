@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -ne 2 ]; then 
+if [ $# -ne 2 ]; then
   echo ""
   echo "Adds tasks to QA stories from a file."
   echo ""
@@ -24,11 +24,11 @@ taskFile="$2"
 
 export children=()
 echo "Adding tasks..."
-while read line; do 
+while read line; do
   line=$line # Trim whitespace
   if [ -n "$line" ] ; then
-    export message="$(echo "$line" | sed -nre 's/^[[:space:]]*(.*)[[:space:]]+[0-9]+[[:space:]]*$/\1/p')" 
-    export hours="$(echo "$line" | sed -nre 's/^.*[[:space:]]+([0-9]+)[[:space:]]*$/\1/p')" 
+    export message="$(echo "$line" | sed -nre 's/^[[:space:]]*(.*)[[:space:]]+[0-9]+[[:space:]]*$/\1/p')"
+    export hours="$(echo "$line" | sed -nre 's/^.*[[:space:]]+([0-9]+)[[:space:]]*$/\1/p')"
     if [ -z "$message" -o -z "$hours" -o "$message" = "$hours" ]; then
       echo "ERROR!"
       echo "ERROR: I couldn't read message and hours from this line: '$line'";
@@ -40,7 +40,7 @@ while read line; do
     children+=($child)
   fi
 done < "$taskFile"
-for child in "${children[@]}"; do 
+for child in "${children[@]}"; do
   wait $child
 done
 echo "Tasks added."

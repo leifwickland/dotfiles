@@ -20,7 +20,7 @@ echo ""
 git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --topo-order --date=relative $delta
 now=$(date +%s)
 read -p "Do you want to update the commit time of all of the above changes to $(date)? [(y/N)]" response
-if [ "$response" != "y" ]; then 
+if [ "$response" != "y" ]; then
   echo "You didn't say the magic word. Exiting."
   exit 1
 fi
@@ -30,7 +30,7 @@ GIT_SEQUENCE_EDITOR="bash '$seqEditor'" git rebase -i
 rebaseResult=$?
 rm $seqEditor
 test $rebaseResult -eq 0 || die "Git rebase failed. That usually means there was nothing to rebase."
-while [ "$(currentBranch)" == "(nobranch)" ]; do 
+while [ "$(currentBranch)" == "(nobranch)" ]; do
   export GIT_COMMITTER_DATE=$now
   git commit --amend --date="$GIT_COMMITTER_DATE" -C HEAD || die "Updating the time failed!"
   git rebase --continue || die "Continuing the rebase failed!"

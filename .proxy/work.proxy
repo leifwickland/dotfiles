@@ -6,18 +6,18 @@ die() {
 DIR=$(dirname $0)
 iptablesFile="$DIR/iptables.work"
 [ -f "$iptablesFile" ] || die "I couldn't find an iptable config file at $iptablesFile."
-if [ -z "$GOPATH" ]; then 
+if [ -z "$GOPATH" ]; then
   die "You must set the GOPATH variable. It is where go programs will be downloaded to.  I suggest '$HOME/src/go'."
 fi
 anyProxyUrl="github.com/ryanchapman/go-any-proxy"
 anyProxyDir="$GOPATH/src/$anyProxyUrl"
-if [ ! -d "$anyProxyDir" ] ; then 
+if [ ! -d "$anyProxyDir" ] ; then
   echo "Downloading any proxy from ${anyProxyUrl}..."
-  go get -u "$anyProxyUrl" 
+  go get -u "$anyProxyUrl"
   [ -d "$anyProxyDir" ] || die "I can't find the any proxy directory. There should be a $anyProxyDir."
 fi
 anyProxyExec="$anyProxyDir/any_proxy"
-if [ ! -x "$anyProxyExec" ] ; then 
+if [ ! -x "$anyProxyExec" ] ; then
 [ -x "$anyProxyDir/make.bash" ] || die "I can't find the any proxy build script.  It should be at $anyProxyDir/make.bash."
   cd "$anyProxyDir"
   ./make.bash || die "Building any proxy failed. I'm sorry"

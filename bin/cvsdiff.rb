@@ -2,7 +2,7 @@
 # Roughly the equivalent of:
 #   git diff -no-ext-diff --relative --name-only
 repo = `cat CVS/Repository`.strip
-if repo == "" 
+if repo == ""
   $stderr.puts "The current directory doesn't have a CVS/Repository file.  I give up."
   exit
 end
@@ -14,7 +14,7 @@ diffs = `cvs -q diff 2> /dev/null | grep RCS.file`
 diffs.split("\n").each {|line|
   if /^.*#{repo}\/(.+),v$/ =~ line
     puts $1
-  else 
+  else
     $stderr.puts "I couldn't get #{line} to match #{repo}."
   end
 }

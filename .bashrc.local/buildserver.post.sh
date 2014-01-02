@@ -53,7 +53,7 @@ cast() {
         echo cast what?
         return 1
     fi
-    if [ $# -ge 2 ]; then 
+    if [ $# -ge 2 ]; then
         HOWMUCH=$2
     else
         HOWMUCH="ALL DATE TIME"
@@ -106,7 +106,7 @@ trout() {
     else
         strl $1
         if [ $STRL -gt 2 ]; then
-            if [ "`pwd`" == "$IFDIR" ]; then 
+            if [ "`pwd`" == "$IFDIR" ]; then
                 TROUT=$1
             else
                 TROUT=$IFDIR/log/$1
@@ -123,7 +123,7 @@ trout() {
             fi
             NTH=1
             TROUT=`ls --color=never -t $TROUT | head -$NTH | tail -1`
-        else 
+        else
             NTH=$1
             TROUT=`ls --color=never -t $IFDIR/log/*.tr | head -$NTH | tail -1`
         fi
@@ -131,7 +131,7 @@ trout() {
 
     if [ "x" == "x$TROUT" ]; then
         echo 'Error!  TROUT variable is empty'
-    else 
+    else
         echo "TROUT='$TROUT'"
         if [ ! -e $TROUT ]; then
             echo "Specified file ($TROUT) does not exist"
@@ -160,12 +160,12 @@ lureless() {
 
 # Deletes the *.tr and *.tr.ind files in the log directory
 # NOTE: all forms delete *.tr.ind
-# usage #1: fish -- deletes *.tr 
+# usage #1: fish -- deletes *.tr
 # usage #2: fish N -- deletes the N oldest *.tr
 # usage #3: fish type -- delete type*.tr.  e.g., fish php deletes php*.tr
 # usage #4: fish type N -- delete N oldest type*.tr
 fish() {
-    if [ $# -eq 0 ]; then 
+    if [ $# -eq 0 ]; then
         WHAT=
         TAIL=
     elif [ $# -eq 1 ]; then
@@ -177,7 +177,7 @@ fish() {
             TAIL="tail -$1"
             WHAT=
         fi
-    else 
+    else
         WHAT=$1
         TAIL="tail -$2"
     fi
@@ -190,7 +190,7 @@ fish() {
     fi
     if [ $NUM -gt 0 ]; then
         rm -f $IFDIR/log/xml*.xml*
-        rm -f $IFDIR/log/$WHAT*.tr.ind 
+        rm -f $IFDIR/log/$WHAT*.tr.ind
         if [ -z "$TAIL" ]; then
             rm -f $IFDIR/log/$WHAT*.tr
         else
@@ -200,29 +200,29 @@ fish() {
     echo "$NUM trout caught"
 }
 
-function golf() 
+function golf()
 {
     if [ -z $1 ]
     then
         echo "USAGE: golf <interface name>"
         return
     fi
-    DEVELOPMENT=/home/httpd/cgi-bin/$1.cfg 
-    HOSTED=/www/rnt/$1/cgi-bin/$1.cfg/ 
-    if [ -d $DEVELOPMENT ] 
+    DEVELOPMENT=/home/httpd/cgi-bin/$1.cfg
+    HOSTED=/www/rnt/$1/cgi-bin/$1.cfg/
+    if [ -d $DEVELOPMENT ]
     then
         cd $DEVELOPMENT
         pwd
     elif [ -d $HOSTED ]
     then
-        cd $HOSTED 
+        cd $HOSTED
         pwd
     else
         echo "I can't find an interface named $1 at $DEVELOPMENT or $HOSTED"
     fi
 }
 
-function gov() 
+function gov()
 {
     if [ -z $1 ]
     then
@@ -230,14 +230,14 @@ function gov()
         return
     fi
     DEVELOPMENT=/home/httpd/html/per_site_html_root/$1/
-    HOSTED=/www/rnt/$1/vhosts/$1/ 
-    if [ -d $DEVELOPMENT ] 
+    HOSTED=/www/rnt/$1/vhosts/$1/
+    if [ -d $DEVELOPMENT ]
     then
         cd $DEVELOPMENT
         pwd
     elif [ -d $HOSTED ]
     then
-        cd $HOSTED 
+        cd $HOSTED
         pwd
     else
         echo "I can't find a docroot named $1 at $DEVELOPMENT or $HOSTED"
@@ -347,7 +347,7 @@ function sudocpbak() {
 
 function _unbak() {
     cmd=$1
-    while [ -n "$2" ] ; do 
+    while [ -n "$2" ] ; do
         bak=`echo "$2" | sed 's/\/$//'` # Strip trailing slash
         orig=`echo "$bak" | grep '\.bak$' | sed 's/\.bak$//'`
         if [ -z "$orig" ] ; then
@@ -373,7 +373,7 @@ function sudounbak() {
 }
 
 function safeeditphp() {
-    while [ -n "$1" ] ; do 
+    while [ -n "$1" ] ; do
         sudomvbak $1.op_codes
         sudocpbak $1
         shift
@@ -385,7 +385,7 @@ function lslast() {
 }
 
 function bush() {
-    if [ -z "$1" ] ; then 
+    if [ -z "$1" ] ; then
         echo "Usage: bush widget_name_or_pattern"
         echo ""
         echo "If one match is found, the script will change to that directory."
@@ -408,7 +408,7 @@ function bush() {
         echo ""
         return
     fi
-    widgetBase="$baseEuf/application/rightnow/widgets" 
+    widgetBase="$baseEuf/application/rightnow/widgets"
     matches=`find $widgetBase -iname "$widget"`
     matchesCount=`echo "$matches" | grep -v -P "^ *$" | wc -l`
     if [ $matchesCount -eq 0 ] ; then
@@ -431,9 +431,9 @@ function cdv() {
     if [ $# -lt 1 ]; then
         echo ""
         echo "USAGE: cdv <replacementSegment>"
-        echo "" 
+        echo ""
         echo "  Example: cdv rnw102"
-        echo "" 
+        echo ""
         return
     fi
     dirPattern='/(trunk|rnw[0-9]+)(/|$)'

@@ -5,6 +5,6 @@ source "$( dirname "${BASH_SOURCE[0]}" )/buildserver.post.sh"
 alias vi='vim'
 EDITOR='/nfs/project/aarnone/OEL6/vim/current/bin/vim'
 
-for i in /nfs/project/aarnone/OEL6/*/current/bin; do 
+for i in /nfs/project/aarnone/OEL6/*/current/bin; do
   pathmunge "$i"
 done

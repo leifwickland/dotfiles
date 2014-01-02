@@ -3,7 +3,7 @@
 require 'fileutils'
 
 def getRCMessage
-    return "You need to have a ~/.commitOnBranch.rc file that contains lines like:\n" + 
+    return "You need to have a ~/.commitOnBranch.rc file that contains lines like:\n" +
     %q@    otherSourceTreeRoot = "/nfs/users/ma/lwickland/src/rnw-8-5-fixes/"@ + "\n" +
     %q@    changesDirectoryRegex = %r{^.*/trunk/?(.*?)$}@ + "\n\n" +
     %q@    These paths need to point to the directory which contains bin, common, rnw, etc.@ + "\n"
@@ -30,7 +30,7 @@ end
 def getTempName
     name = "/tmp/commitOnBranch-#{Time.now.to_i.to_s}-#{rand(9999999).to_s}";
     return getTempName if File.exists?(name)
-    return name 
+    return name
 end
 
 def backup(files)
@@ -57,7 +57,7 @@ def backupAndCvsUpdate(files, argifiedFiles, checkForModifications)
     end
 end
 
-def checkThatCommitMessageLooksReasonable(commitMessage) 
+def checkThatCommitMessageLooksReasonable(commitMessage)
     return if commitMessage =~ / /
     return if commitMessage =~ /\d{6}-\d{6}/
     reportError("Your commit message #{commitMessage} doesn't look particularly interesting.  I suggest you make it more informative.")
@@ -89,13 +89,13 @@ end
 doNotCommit = false
 onlyCreatePatch = false
 rcPath = false
-while ARGV.length > 0 && ARGV[0] =~ /^-[a-z]$/ #ARGV.length > 2 && 
+while ARGV.length > 0 && ARGV[0] =~ /^-[a-z]$/ #ARGV.length > 2 &&
     arg = ARGV.shift
     case arg
     when /^-r$/
         if ARGV.size > 0
-            rcPath = ARGV.shift 
-        else 
+            rcPath = ARGV.shift
+        else
             printUsage("-r requires an argument")
         end
     when /^-d$/
@@ -108,9 +108,9 @@ while ARGV.length > 0 && ARGV[0] =~ /^-[a-z]$/ #ARGV.length > 2 &&
 end
 
 if ARGV.length < 2
-    if ARGV.length > 0 
-        message = "ERROR: You must provide a commit message and files to commit." 
-    else 
+    if ARGV.length > 0
+        message = "ERROR: You must provide a commit message and files to commit."
+    else
         message = false
     end
     printUsage(message)

@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ $# -ne 3 ]; then 
+if [ $# -ne 3 ]; then
   echo ""
   echo "Wrong number of arguments. Read the source, Luke."
   echo "Example usage: $0 run_unit_tests ci-action-capture https://ci.example.com/jenkins/rssAll"

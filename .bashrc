@@ -45,16 +45,16 @@ alias cd......='cd ../../../../..'
 alias cd.......='cd ../../../../../..'
 alias cd........='cd ../../../../../../..'
 
-# Roughly the equivalent of: 
+# Roughly the equivalent of:
 #   git diff -no-ext-diff --relative --name-only
 alias cvsdiff='cvs -q diff | grep ^Index: | sed -re "s/^Index: //"'
 
 function cvsrevert() {
   if [ ! -d "CVS" ]; then
     echo "You're not in a CVS dir. I quit."
-  else 
+  else
     while [ $# -gt 0 ]; do
-      if [ -f $1 ]; then 
+      if [ -f $1 ]; then
         echo "Reverting $1..."
         mv $1 $1.bak
         if [ `cvs up $1 2>&1 | grep was.lost | wc -l` -eq 1 ]; then
@@ -63,7 +63,7 @@ function cvsrevert() {
           mv $1.bak $1
           echo "Failed to cvs up $1. Restored original."
         fi
-      else 
+      else
         echo "Not messing with $1 because it doesn't appear to be a file."
       fi
       shift
@@ -72,8 +72,8 @@ function cvsrevert() {
 }
 
 # Prints the total size of the select files
-filesize() { 
-  ls -l $* 
+filesize() {
+  ls -l $*
   ls -lt $* | awk '{kb += $5} END {kb=kb/1024 ; printf(" TOTAL SIZE: %4.2f MB\n",kb/1024)}'
 }
 

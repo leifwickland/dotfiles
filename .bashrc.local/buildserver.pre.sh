@@ -1,5 +1,5 @@
-if [ -n "$TERM" -a "$TERM" != "dumb" ]; then 
-    if [ "${BASH_VERSINFO[0]}" -lt 4 ]; then 
+if [ -n "$TERM" -a "$TERM" != "dumb" ]; then
+    if [ "${BASH_VERSINFO[0]}" -lt 4 ]; then
         better_bash=/nfs/project/aarnone/bash/install/bin/bash
         if [ -x $better_bash ] ; then
             exec $better_bash

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Formats scala code. Wrapper around the scalariform jar. 
+# Formats scala code. Wrapper around the scalariform jar.
 # Will attempt to download the JAR if necessary.
 die() {
   echo $*
