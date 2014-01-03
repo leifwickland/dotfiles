@@ -51,12 +51,6 @@
 
     ; Enable rebase on pull (instead of merge on pull) for the current checkout
     enableRebasePull = config branch.master.rebase true
-[diff]
-    external = ~/bin/git_diff_wrapper
-[pager]
-    ; Without this less jumps in front of vim for external diffs and fubars the terminal.
-    ; However, exporting GITPAGER="less -FXR" in .bashrc allows me to get paged, colored diffs
-    diff =
 [color]
     ui = auto
 [branch]
