@@ -74,5 +74,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | <action=~/.xmonad/soundMixer.sh>Vol: %myvolume%</action>    <action=pcalendar><fc=#e6744c>%date%</fc></action>     "
+   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | <action=~/.xmonad/soundMixer.sh>Vol: %myvolume%</action>    <action=pcalendar><fc=#e6744c>%date%</fc></action>            "
 }
