@@ -50,6 +50,8 @@ nnoremap <C-U> :CtrlPTag<cr>
 
 " Run a proper terminal within vim!
 " NeoBundle 'git://github.com/rson/vim-conque'
+" See http://code.google.com/p/conque/wiki/Usage
+"let g:ConqueTerm_ReadUnfocused = 1
 
 " Beautify Javascript. Clone of jsbeautify.org.
 NeoBundle 'git://github.com/vim-scripts/jsbeautify'
@@ -58,14 +60,9 @@ NeoBundle 'git://github.com/vim-scripts/jsbeautify'
 NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
 
 " Fancy status line
-"if has("gui_running")
+if has("gui_running")
   NeoBundle 'git://github.com/bling/vim-airline'
-"endif
-
-" Displays the names of open buffers in the airline status line.
-"if has("gui_running")
-"  NeoBundle 'git://github.com/bling/vim-bufferline'
-"endif
+endif
 
 " Solarized color schemes
 NeoBundle 'altercation/vim-colors-solarized'
@@ -119,15 +116,14 @@ set wildignore+=*/cvs/*
 " Highlight search results. Search incrementally as I type.
 set hlsearch incsearch
 
-" See http://code.google.com/p/conque/wiki/Usage
-let g:ConqueTerm_ReadUnfocused = 1
-
 if has("gui_running")
   set guioptions-=m " Don't display menu
   set guioptions+=a " Allow vim to magically put things on the clipboard
   set guioptions-=T " No toolbar
-  set guioptions-=rR " Hide scrollbar on right
-  set guioptions-=lL " Hide scrollbar on left
+  set guioptions-=r " Hide scrollbar on right
+  set guioptions-=R " Hide scrollbar on right
+  set guioptions-=l " Hide scrollbar on left
+  set guioptions-=L " Hide scrollbar on left
 
   set title titlestring=VIM\ -\ %F\ %h "make sure that the window caption setting is turned on and set caption to vim 5.x style
 
@@ -136,9 +132,11 @@ if has("gui_running")
   endif
   set background=light
   colorscheme solarized
+  set guifont=Source\ Code\ Pro\ Medium\ 11
 else
-  " I really like how this looks in Putty and really hate how it looks in gvim
-  let g:airline_theme='solarized'
+  " I'm leaving this here in case I use airline again.
+  let g:airline_theme='kolor' 
+  " I really like how this scheme looks in Putty and really hate how it looks in gvim
   colorscheme desert
 endif
 
