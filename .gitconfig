@@ -7,6 +7,7 @@
     ; Laziness is a virtue; short aliases
     st = status
     ci = commit
+    cm = commit --amend ; Typically used to change the previous commit's message.
     cA = commit --amend -C HEAD ; Commit, merging into the previous commit and reusing its message. Named based on fugitive analog.
     br = branch
     co = checkout
