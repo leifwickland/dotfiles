@@ -55,6 +55,9 @@ xsetroot -cursor_name left_ptr
 #
 
 # To set your backgrounds, run nitrogren /path/to/images
+# You need to explicitly set the image for each monitor in each configuration for it to work.
+# Something like the following in crontab will change the picture every minute by updating nitrogen's config file and reloading it.
+# export DISPLAY=:0; sed -i -re "s@^file=.*@file=$(ls ~/Pictures/*.jpg | shuf | head -n 1)@" ~/.config/nitrogen/bg-saved.cfg; nitrogen --restore >/dev/null 2>/dev/null
 nitrogen --restore &
 
 
