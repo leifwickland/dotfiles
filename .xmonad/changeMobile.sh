@@ -28,3 +28,4 @@ stalonetray \
   --window-strut none \
   &
 
+nitrogen --restore &

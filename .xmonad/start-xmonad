@@ -55,7 +55,7 @@ xsetroot -cursor_name left_ptr
 #
 
 # To set your backgrounds, run nitrogren /path/to/images
-nitrogen --restore  &
+nitrogen --restore &
 
 
 #

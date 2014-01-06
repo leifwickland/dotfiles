@@ -27,3 +27,5 @@ stalonetray \
   --kludges force_icons_size \
   --window-strut none \
   &
+
+nitrogen --restore &
