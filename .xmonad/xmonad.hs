@@ -34,6 +34,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 import Data.Ratio ((%))
 import XMonad.Hooks.ICCCMFocus
+import XMonad.Actions.CycleWS
 
 {-
   Xmonad configuration variables. These settings control some of the
@@ -204,12 +205,13 @@ myKeyBindings =
     , ((myModMask, xK_u), focusUrgent)
     , ((myModMask, xK_F11), spawn "~/.xmonad/changeMobile.sh")
     , ((myModMask, xK_F12), spawn "~/.xmonad/changeWork.sh")
+    , ((myModMask, xK_i), swapNextScreen) -- Swap current screen with next screen
 {- The default approach doesn't correctly unmute.
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
 -}
     , ((0, 0x1008FF12), spawn "~/.xmonad/toggle_mute.sh")
-    , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
-    , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+    , ((0, 0x1008FF11), spawn "amixer -q set Master 5%-")
+    , ((0, 0x1008FF13), spawn "amixer -q set Master 5%+")
   ]
 
 
