@@ -21,6 +21,7 @@
     revertLastCommit=revert HEAD
     lastCommitMessage=log -1 --pretty=%B # Stolen from http://stackoverflow.com/a/7293026/175251
     lastCommitFiles=show --pretty="format:" --name-only 
+    removeFileFromLastCommit=!~/bin/gitRemoveFileFromLastCommit.sh
 
     ; So many ways to diff
     dall = diff --no-ext-diff
