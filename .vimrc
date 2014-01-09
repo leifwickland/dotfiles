@@ -139,7 +139,7 @@ if has("gui_running")
   endif
   set background=light
   colorscheme solarized
-  set guifont=Source\ Code\ Pro\ Medium\ 11
+  set guifont=Source\ Code\ Pro\ Medium\ 10
 else
   " I'm leaving this here in case I use airline again.
   let g:airline_theme='kolor' 
