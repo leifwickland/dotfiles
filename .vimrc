@@ -18,7 +18,14 @@ NeoBundle 'git://github.com/Shougo/vimproc.vim'
 
 " Highlights syntax errors on file save.
 NeoBundle 'git://github.com/scrooloose/syntastic'
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_loc_list_height=3
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_jump = 1
+let g:syntastic_scala_checkers = ['fsc'] " Only use `fsc` and not `scalac`
+if has("gui_running")
+    let g:syntastic_error_symbol = '✗'
+    let g:syntastic_warning_symbol = '⚠'
+endif
 
 " Scala support
 NeoBundle 'git://github.com/derekwyatt/vim-scala/'
