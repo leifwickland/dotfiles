@@ -31,4 +31,4 @@ if [ "$(ps aux | grep [g]oogle.chrome | wc -l)" -eq 0 ]; then # Chrome runs with
 fi
 startOnce pidgin
 startOnce thunderbird
-startOnce gnome-terminal -x tmux attach -d
+startOnce gnome-terminal
