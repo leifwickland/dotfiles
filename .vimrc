@@ -53,7 +53,12 @@ let g:ctrlp_custom_ignore = {
       \ }
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_working_path_mode = 'w' " Search from the working directory instead of relative to the file.
-nnoremap <C-U> :CtrlPTag<cr>
+nnoremap <C-u> :CtrlPTag<cr>
+if has('gui_running') 
+  nnoremap <A-p> :CtrlPBuffer<cr>
+else
+  nnoremap p :CtrlPBuffer<cr>
+endif
 
 " Run a proper terminal within vim!
 " NeoBundle 'git://github.com/rson/vim-conque'
