@@ -60,11 +60,6 @@ else
   nnoremap p :CtrlPBuffer<cr>
 endif
 
-" Run a proper terminal within vim!
-" NeoBundle 'git://github.com/rson/vim-conque'
-" See http://code.google.com/p/conque/wiki/Usage
-"let g:ConqueTerm_ReadUnfocused = 1
-
 " Beautify Javascript. Clone of jsbeautify.org.
 NeoBundle 'git://github.com/vim-scripts/jsbeautify'
 
@@ -83,24 +78,7 @@ let g:solarized_contrast="high"
 " Improves the directory listing shown by :Explore
 NeoBundle 'git://github.com/tpope/vim-vinegar'
 
-" Dependencies for vimside
-" Feb 12, 2013. Defeated again. Ensime reports errors when I ask it to do a
-" simple refactor.
-"NeoBundle 'git://github.com/Shougo/vimproc.git'
-"NeoBundle 'git://github.com/Shougo/vimshell.git'
-"NeoBundle 'git://github.com/megaannum/self'
-"NeoBundle 'git://github.com/megaannum/forms'
-"NeoBundle 'git://github.com/aemoncannon/ensime.git'
-"
-" Ensime (scala) support
-"NeoBundle 'git://github.com/megaannum/vimside'
-
 filetype plugin indent on     " Required!
-"
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
