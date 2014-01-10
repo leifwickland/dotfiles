@@ -131,13 +131,13 @@ else
 endif
 
 " set the location swap files are written to
-"set directory=~/.vim/.swp
+set directory=~/.vim/.swp
 
 if version >= 703
   " Let vim create undo files so changes can be undone across file reloads
   " Came into existence in vim 7.3.
   set undofile
-  "set undodir=~/.vim/.undo
+  set undodir=~/.vim/.undo
 else
 endif
 
