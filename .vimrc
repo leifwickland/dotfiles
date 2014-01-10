@@ -217,6 +217,7 @@ inoremap ] ]<bs>]
 command! -nargs=? Res :res <args>
 command! -nargs=? Re :res <args>
 command! -nargs=? R :res <args>
+command! -nargs=? E :Explore <args>
 cabbr mka mak
 cab re res
 cab SEx Sex
