@@ -105,6 +105,10 @@ gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 #Map caps to escape
 setxkbmap -option 'caps:escape'
 
+# Let nautilus do the things it's good at like automounting.
+# Suggested by http://superuser.com/a/277640/77192
+#nautilus --no-desktop -n &
+
 # Now, finally, start xmonad
 exec xmonad
 

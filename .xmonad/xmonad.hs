@@ -203,6 +203,7 @@ myKeyBindings =
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
+    , ((myModMask, xK_F10), spawn "~/.xmonad/changeHome.sh")
     , ((myModMask, xK_F11), spawn "~/.xmonad/changeMobile.sh")
     , ((myModMask, xK_F12), spawn "~/.xmonad/changeWork.sh")
     , ((myModMask, xK_i), swapNextScreen) -- Swap current screen with next screen
