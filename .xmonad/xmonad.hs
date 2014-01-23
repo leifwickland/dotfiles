@@ -90,7 +90,7 @@ myWorkspaces =
   [
     "1:Chat",  "2:Dev", "3:Web",
     "4:Mail",  "5:X1", "6:X2",
-    "7:X3",  "8:X4", "9:X5"
+    "7:X3",  "8:X4", "9:Gimp"
   ]
 
 startupWorkspace = "2:Dev"  -- which workspace do you want to be on after launch?
@@ -115,20 +115,20 @@ startupWorkspace = "2:Dev"  -- which workspace do you want to be on after launch
 -- "avoidStruts" modifier makes it so that the layout provides
 -- space for the status bar at the top of the screen.
 defaultLayouts = smartBorders(avoidStruts(
+  -- Full layout makes every window full screen. When you toggle the
+  -- active window, it will bring the active window to the front.
+  noBorders Full
+
   -- ResizableTall layout has a large master window on the left,
   -- and remaining windows tile on the right. By default each area
   -- takes up half the screen, but you can resize using "super-h" and
   -- "super-l".
-  ResizableTall 1 (3/100) (1/2) []
+  ||| ResizableTall 1 (3/100) (1/2) []
 
   -- Mirrored variation of ResizableTall. In this layout, the large
   -- master window is at the top, and remaining windows tile at the
   -- bottom of the screen. Can be resized as described above.
-  ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
-
-  -- Full layout makes every window full screen. When you toggle the
-  -- active window, it will bring the active window to the front.
-  ||| noBorders Full))
+  ||| Mirror (ResizableTall 1 (3/100) (1/2) [])))
 
   -- Grid layout tries to equally distribute windows in the available
   -- space, increasing the number of columns and rows as necessary.
@@ -164,12 +164,13 @@ chatLayout = avoidStruts(withIM (1%7) (Title myIMRosterTitle) Grid)
 -- master area, and then use this ThreeColMid layout to make the panels
 -- tile to the left and right of the image. If you use GIMP 2.8, you
 -- can use single-window mode and avoid this issue.
---gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
+gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
 
 -- Here we combine our default layouts with our specific, workspace-locked
 -- layouts.
 myLayouts =
   onWorkspace "1:Chat" chatLayout
+  $ onWorkspace "9:Gimp" gimpLayout
   $ defaultLayouts
 
 
