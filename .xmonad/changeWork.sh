@@ -29,3 +29,5 @@ stalonetray \
   &
 
 nitrogen --restore &
+
+~/.capsIsEscape &
