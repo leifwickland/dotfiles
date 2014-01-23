@@ -89,7 +89,8 @@ myUrgentWSRight = "}"
 myWorkspaces =
   [
     "1:Chat",  "2:Dev", "3:Web",
-    "4:Mail",  "5:Extra1", "6:Extra2"
+    "4:Mail",  "5:X1", "6:X2",
+    "7:X3",  "8:X4", "9:X5"
   ]
 
 startupWorkspace = "2:Dev"  -- which workspace do you want to be on after launch?
@@ -294,17 +295,17 @@ myManagementHooks = [
 -- uses the arrow keys.
 numPadKeys =
   [
-    xK_KP_Home, xK_KP_Up, xK_KP_Page_Up
+    xK_KP_End, xK_KP_Down, xK_KP_Page_Down
     , xK_KP_Left, xK_KP_Begin,xK_KP_Right
-    , xK_KP_End, xK_KP_Down, xK_KP_Page_Down
+    , xK_KP_Home, xK_KP_Up, xK_KP_Page_Up
     , xK_KP_Insert, xK_KP_Delete, xK_KP_Enter
   ]
 
 numKeys =
   [
-    xK_7, xK_8, xK_9
+    xK_1, xK_2, xK_3
     , xK_4, xK_5, xK_6
-    , xK_1, xK_2, xK_3
+    , xK_7, xK_8, xK_9
     , xK_0, xK_minus, xK_equal
   ]
 
