@@ -4,7 +4,7 @@ autostart_station = 1063902221444929912
 password = PASSWORD_PLACEHOLDER
 user = leifwickland@gmail.com
 
-high-quality audio (192k mp3, for Pandora One subscribers only!)
+# high-quality audio (192k mp3, for Pandora One subscribers only!)
 audio_quality = high
 rpc_host = internal-tuner.pandora.com
 partner_user = pandora one
