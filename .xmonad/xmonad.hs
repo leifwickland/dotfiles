@@ -90,7 +90,7 @@ myWorkspaces =
   [
     "1:Chat",  "2:Dev", "3:Web",
     "4:Mail",  "5:X1", "6:X2",
-    "7:X3",  "8:X4", "9:Gimp"
+    "7:X3",  "8:Pand", "9:Gimp"
   ]
 
 startupWorkspace = "2:Dev"  -- which workspace do you want to be on after launch?
@@ -203,7 +203,6 @@ myKeyBindings =
     ((myModMask, xK_b), sendMessage ToggleStruts)
     , ((myModMask, xK_a), sendMessage MirrorShrink)
     , ((myModMask, xK_z), sendMessage MirrorExpand)
-    , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
     , ((myModMask, xK_F10), spawn "~/.xmonad/changeHome.sh")
     , ((myModMask, xK_F11), spawn "~/.xmonad/changeMobile.sh")
@@ -215,6 +214,13 @@ myKeyBindings =
     , ((0, 0x1008FF12), spawn "~/.xmonad/toggle_mute.sh")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 5%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 5%+")
+    -- See https://answers.launchpad.net/pithos/+question/166326 or http://bazaar.launchpad.net/~kevin-mehall/pithos/trunk/view/head:/pithos/dbus_service.py for the pithos commands
+    , ((myModMask, xK_p), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.PlayPause")
+    , ((0, xK_Pause), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.PlayPause") 
+    , ((myModMask, xK_plus), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.LoveCurrentSong")
+    , ((myModMask, xK_minus), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.BanCurrentSong")
+    , ((myModMask, xK_BackSpace), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.SkipSong")
+    , ((myModMask, xK_backslash), spawn "xmessage \"$(dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.GetCurrentSong)\"")
   ]
 
 
@@ -276,6 +282,7 @@ myManagementHooks = [
   , (className =? "Google-chrome-stable") --> doF (W.shift "3:Web")
   , (className =? "Google-chrome") --> doF (W.shift "3:Web")
   , (className =? "Thunderbird") --> doF (W.shift "4:Mail")
+  , (className =? "Pithos") --> doF (W.shift "8:Pand")
   ]
 
 
