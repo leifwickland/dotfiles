@@ -217,7 +217,7 @@ myKeyBindings =
     -- See https://answers.launchpad.net/pithos/+question/166326 or http://bazaar.launchpad.net/~kevin-mehall/pithos/trunk/view/head:/pithos/dbus_service.py for the pithos commands
     , ((myModMask, xK_p), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.PlayPause")
     , ((0, xK_Pause), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.PlayPause") 
-    , ((myModMask, xK_plus), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.LoveCurrentSong")
+    , ((myModMask, xK_equal), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.LoveCurrentSong") -- Think of that as +, not =.
     , ((myModMask, xK_minus), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.BanCurrentSong")
     , ((myModMask, xK_BackSpace), spawn "dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.SkipSong")
     , ((myModMask, xK_backslash), spawn "xmessage \"$(dbus-send --print-reply --dest=net.kevinmehall.Pithos /net/kevinmehall/Pithos net.kevinmehall.Pithos.GetCurrentSong)\"")
