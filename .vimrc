@@ -72,7 +72,7 @@ if has("gui_running")
 endif
 
 " Solarized color schemes
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'git://github.com/altercation/vim-colors-solarized'
 let g:solarized_contrast="high"
 
 " Improves the directory listing shown by :Explore
