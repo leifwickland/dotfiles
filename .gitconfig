@@ -64,4 +64,4 @@
 [push]
     default = tracking ; Default to only pushing the current branch.  When I don't have to work with old version of get, this should become 'simple'.
 [rerere]
-	enabled = true
+    enabled = true
