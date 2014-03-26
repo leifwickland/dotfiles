@@ -23,8 +23,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_scala_checkers = ['fsc'] " Only use `fsc` and not `scalac`
 if has("gui_running")
-    let g:syntastic_error_symbol = '✗'
-    let g:syntastic_warning_symbol = '⚠'
+  let g:syntastic_error_symbol = '✗'
+  let g:syntastic_warning_symbol = '⚠'
 endif
 
 " Scala support
@@ -48,13 +48,13 @@ NeoBundle 'git://github.com/tpope/vim-markdown'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 NeoBundle 'git://github.com/kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ }
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_working_path_mode = 'w' " Search from the working directory instead of relative to the file.
 nnoremap <C-u> :CtrlPTag<cr>
-if has('gui_running') 
+if has('gui_running')
   nnoremap <A-p> :CtrlPBuffer<cr>
 else
   nnoremap p :CtrlPBuffer<cr>
@@ -125,7 +125,7 @@ if has("gui_running")
   set guifont=Source\ Code\ Pro\ Medium\ 10
 else
   " I'm leaving this here in case I use airline again.
-  let g:airline_theme='kolor' 
+  let g:airline_theme='kolor'
   " I really like how this scheme looks in Putty and really hate how it looks in gvim
   colorscheme desert
 endif
