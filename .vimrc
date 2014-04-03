@@ -79,6 +79,9 @@ let g:solarized_contrast="high"
 " Improves the directory listing shown by :Explore
 NeoBundle 'git://github.com/tpope/vim-vinegar'
 
+" Table alignment
+NeoBundle 'git://github.com/vim-scripts/vim-easy-align.git'
+
 filetype plugin indent on     " Required!
 
 " Installation check.
