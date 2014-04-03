@@ -22,6 +22,7 @@ let g:syntastic_loc_list_height=3
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_scala_checkers = ['fsc'] " Only use `fsc` and not `scalac`
+let g:syntastic_php_checkers = ['php'] " Only use `php` and not `phpcs`.
 if has("gui_running")
   let g:syntastic_error_symbol = '✗'
   let g:syntastic_warning_symbol = '⚠'
