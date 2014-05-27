@@ -1,4 +1,3 @@
-export HOME=/nfs/users/lwickland
 export LD_LIBRARY_PATH="$HOME/src/trunk/rnw/lib/linux_mysql:/nfs/local/linux/lib:/usr/lib"
 export JAVA_HOME="$HOME/bin/jdk1.7.0_40/jre/"
 
@@ -140,12 +139,12 @@ trout() {
     fi
 }
 
-LURE_ED_ARGS='-R -s /nfs/users/ma/lwickland/.bin/.troutIndent.vim'
+LURE_ED_ARGS='-R -s /nfs/users/ma/lwicklan/.bin/.troutIndent.vim'
 # Opens the file returned by trout with $EDITOR [$LURE_ED_ARGS]
 lure() {
     trout $1
     if [ "x" != "x$TROUT" ]; then
-        ~lwickland/bin/troutIndentToFile.pl $TROUT $TROUT.ind
+        ~/bin/troutIndentToFile.pl $TROUT $TROUT.ind
         $EDITOR $LURE_ED_ARGS $TROUT.ind
     fi
 }
