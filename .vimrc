@@ -174,7 +174,7 @@ set noequalalways
 " But I do want to keep all windows the same width by default.
 set eadirection="ver"
 
-set diffopt+=iwhite,context:15
+set diffopt+=iwhite,context:15,vertical
 
 " Swap around ' and ` because the ` version jumps to a particular line and column, not just a particular line.
 nnoremap ' `
