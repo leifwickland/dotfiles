@@ -45,6 +45,8 @@ alias cd......='cd ../../../../..'
 alias cd.......='cd ../../../../../..'
 alias cd........='cd ../../../../../../..'
 
+alias judith='rdesktop -g 1920x1200 -u lwicklan -d oradev judith.us.oracle.com &'
+
 # Roughly the equivalent of:
 #   git diff -no-ext-diff --relative --name-only
 alias cvsdiff='cvs -q diff | grep ^Index: | sed -re "s/^Index: //"'
