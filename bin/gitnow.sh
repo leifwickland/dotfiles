@@ -1,5 +1,14 @@
 #! /bin/bash
 
+if [ $# -ne 1 ]; then
+  echo "USAGE: $0 <rebaseTo>"
+  echo ""
+  echo "Example: $0 origin/master   # If you're on master"
+  echo "Example: $0 master          # If you're on a branch"
+  echo ""
+  exit -1
+fi
+
 # Changes the date to the current moment of all commits which have not been pushed to origin.
 
 # Stolen from: http://repo.or.cz/w/git.git/blob/HEAD:/contrib/completion/git-completion.bash#l75
@@ -41,7 +50,7 @@ if [ "$(__isRebase)" -eq 0 ]; then
   if [ "$i" != "y" ]; then
     exit
   fi
-  git rebase -i
+  git rebase -i $1
 fi
 
 until [ "$(__isRebase)" -eq 0 ]; do
