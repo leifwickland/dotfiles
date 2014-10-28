@@ -226,3 +226,10 @@ command! -nargs=? E :Explore <args>
 cabbr mka mak
 cab re res
 cab SEx Sex
+
+" Some Scala syntax seems to confuse vim into thinking it's found a mode line,
+" which breaks fugitive's ability to diff those files.
+" I really don't understand why modelines are being detected outside of the
+" default 5 line window at the beginning and end of the files, but they seem
+" to be. Shrug. Moving on.
+set nomodeline
