@@ -29,7 +29,8 @@ if [ $(pgrep any_proxy | wc -l) != 0 ]; then
 fi
 echo "Starting any proxy as root..."
 localAnyProxyPort=3128
-upstreamHttpProxies=10.140.112.12:3128,148.87.67.152:80,141.146.46.103:80,148.87.67.151:80,148.87.19.20:80
+upstreamHttpProxies=148.87.67.152:80,141.146.46.103:80,148.87.67.151:80,148.87.19.20:80
+#HC=10.140.112.12:3128
 #rn-proxy.oracle.com=148.87.67.152
 #For any_proxy logging, add this: -v=1 -f /home/leif/src/any_proxy/log
 sudo $anyProxyExec -l :$localAnyProxyPort -p $upstreamHttpProxies &
