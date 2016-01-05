@@ -18,10 +18,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " After install, cd ~/.vim/bundle/vimproc.vim; make -f your_machines_makefile
 " Allows Neobundle to update itself in parallel.
-NeoBundle 'git://github.com/Shougo/vimproc.vim'
+NeoBundle 'https://github.com/Shougo/vimproc.vim'
 
 " Highlights syntax errors on file save.
-NeoBundle 'git://github.com/scrooloose/syntastic'
+NeoBundle 'https://github.com/scrooloose/syntastic'
 let g:syntastic_loc_list_height=3
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
@@ -34,25 +34,25 @@ if has("gui_running")
 endif
 
 " Scala support
-NeoBundle 'git://github.com/derekwyatt/vim-scala/'
-NeoBundle 'git://github.com/leifwickland/vim-scala-ftplugin'
-NeoBundle 'git://github.com/leifwickland/scala-vim-support'
+NeoBundle 'https://github.com/derekwyatt/vim-scala/'
+NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
+NeoBundle 'ssh://github.com/leifwickland/scala-vim-support'
 
 " Dear self, you always forget that this plugin is broken because it has a .vim file in DOS format.
 " I ended up making my own repo so I could fix that irritation.
-NeoBundle 'git://github.com/leifwickland/cvsmenu.vim'
+NeoBundle 'ssh://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
-NeoBundle 'git://github.com/tpope/vim-fugitive'
+NeoBundle 'https://github.com/tpope/vim-fugitive'
 
 " PHP support
-NeoBundle 'git://github.com/leifwickland/vim-php-support'
+NeoBundle 'ssh://github.com/leifwickland/vim-php-support'
 
 " Markdown support
-NeoBundle 'git://github.com/tpope/vim-markdown'
+NeoBundle 'https://github.com/tpope/vim-markdown'
 
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-NeoBundle 'git://github.com/kien/ctrlp.vim'
+NeoBundle 'https://github.com/kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
@@ -67,25 +67,25 @@ else
 endif
 
 " Beautify Javascript. Clone of jsbeautify.org.
-NeoBundle 'git://github.com/vim-scripts/jsbeautify'
+NeoBundle 'https://github.com/vim-scripts/jsbeautify'
 
 "Compiler support for Mono's C# compiler, gmcs
-NeoBundle 'git://github.com/vim-scripts/gmcs.vim'
+NeoBundle 'https://github.com/vim-scripts/gmcs.vim'
 
 " Fancy status line
 if has("gui_running")
-  NeoBundle 'git://github.com/bling/vim-airline'
+  NeoBundle 'https://github.com/bling/vim-airline'
 endif
 
 " Solarized color schemes
-NeoBundle 'git://github.com/altercation/vim-colors-solarized'
+NeoBundle 'https://github.com/altercation/vim-colors-solarized'
 let g:solarized_contrast="high"
 
 " Improves the directory listing shown by :Explore
-NeoBundle 'git://github.com/tpope/vim-vinegar'
+NeoBundle 'https://github.com/tpope/vim-vinegar'
 
 " Table alignment
-NeoBundle 'git://github.com/vim-scripts/vim-easy-align.git'
+NeoBundle 'https://github.com/vim-scripts/vim-easy-align.git'
 
 " End NeoBundle setup
 call neobundle#end()
@@ -124,7 +124,11 @@ if has("gui_running")
   endif
   set background=light
   colorscheme solarized
-  set guifont=Source\ Code\ Pro\ Medium\ 10
+  if has('mac')
+    set guifont=Menlo\ Regular:h14
+  else 
+    set guifont=Source\ Code\ Pro\ Medium\ 10
+  endif 
 else
   " I'm leaving this here in case I use airline again.
   let g:airline_theme='kolor'
