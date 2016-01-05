@@ -1,0 +1,1 @@
+/Users/lwickland/.bashrc.local/macosx.pre.sh
