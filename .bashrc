@@ -12,7 +12,7 @@ pathmunge () {
 }
 
 run_local_bashrc() {
-  f=~/.bashrc.local/$(hostname).$1.sh
+  f=~/.bashrc.local/$(hostname -s).$1.sh
   if [ -f $f ]; then
     source $f
   fi
@@ -29,7 +29,6 @@ alias jbos='jobs'
 alias mdkir='mkdir'
 alias get='git'
 
-export GREP_OPTIONS="$GREP_OPTIONS --color=auto"
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias lla='ls --color=auto -lhA'
@@ -279,6 +278,8 @@ ctarz() {
 ctarj() {
   ctar "$1" "j"
 }
+
+alias grep='grep --color=auto'
 
 run_local_bashrc "post"
 pathmunge "$HOME/bin" # Ensure ~/bin is first in my path.
