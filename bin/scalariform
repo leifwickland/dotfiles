@@ -9,7 +9,7 @@ DIR=$(dirname $0)
 JAR="$DIR/scalariform.jar"
 if [ ! -f "$JAR" ]; then
   echo "The scalariform jar was not found.  Attempting to download it."
-  URL="https://s3.amazonaws.com/scalariform/scalariform.jar"
+  URL="github.com/daniel-trinh/scalariform/releases/download/0.1.7/scalariform.jar"
   wget -O "$JAR" "$URL" || die "FATAL ERROR: Unable to download scalariform jar from $URL."
   chmod a-x "$JAR" # Because this file is probably in the user's path, make the jar non-executable so it isn't included in completion.
 fi
