@@ -15,6 +15,7 @@
     co = checkout
     pp = !echo "Pulling" && git pull && echo "" && echo "Pushing" && git push
     prp = !echo "Pulling" && git pull && echo "" && echo "Rebasing" && git rebase -i origin && echo "" && echo "Pushing" && git push
+    pul = pull
 
     listTrackedFiles = ls-tree -r --name-only HEAD
 
