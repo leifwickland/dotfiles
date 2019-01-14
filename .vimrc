@@ -32,11 +32,17 @@ if has("gui_running")
   let g:syntastic_error_symbol = '✗'
   let g:syntastic_warning_symbol = '⚠'
 endif
+let g:syntastic_sh_shellcheck_args = '-x'
+let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 
 " Scala support
 NeoBundle 'https://github.com/derekwyatt/vim-scala/'
 NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
 NeoBundle 'ssh://github.com/leifwickland/scala-vim-support'
+" NeoBundle 'ensime/ensime-vim'
 
 " Dear self, you always forget that this plugin is broken because it has a .vim file in DOS format.
 " I ended up making my own repo so I could fix that irritation.
@@ -44,6 +50,8 @@ NeoBundle 'ssh://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
 NeoBundle 'https://github.com/tpope/vim-fugitive'
+NeoBundle 'https://github.com/tpope/vim-rhubarb'
+
 
 " PHP support
 NeoBundle 'ssh://github.com/leifwickland/vim-php-support'
@@ -52,7 +60,7 @@ NeoBundle 'ssh://github.com/leifwickland/vim-php-support'
 NeoBundle 'https://github.com/tpope/vim-markdown'
 
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-NeoBundle 'https://github.com/kien/ctrlp.vim'
+NeoBundle 'https://github.com/ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
@@ -65,6 +73,8 @@ if has('gui_running')
 else
   nnoremap p :CtrlPBuffer<cr>
 endif
+
+autocmd BufNewFile,BufRead *.py.jp   set filetype=python
 
 " Beautify Javascript. Clone of jsbeautify.org.
 NeoBundle 'https://github.com/vim-scripts/jsbeautify'
@@ -87,6 +97,20 @@ NeoBundle 'https://github.com/tpope/vim-vinegar'
 " Table alignment
 NeoBundle 'https://github.com/vim-scripts/vim-easy-align.git'
 
+NeoBundle 'https://github.com/Shougo/vimshell.vim.git'
+
+" Haskell support from http://www.stephendiehl.com/posts/vim_2016.html
+NeoBundle 'https://github.com/eagletmt/ghcmod-vim.git'
+NeoBundle 'https://github.com/eagletmt/neco-ghc'
+NeoBundle 'https://github.com/tomtom/tlib_vim.git'
+NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
+NeoBundle 'https://github.com/garbas/vim-snipmate.git'
+NeoBundle 'https://github.com/scrooloose/nerdtree.git'
+NeoBundle 'https://github.com/scrooloose/nerdcommenter.git'
+NeoBundle 'https://github.com/godlygeek/tabular.git'
+NeoBundle 'https://github.com/ervandew/supertab.git'
+NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
+
 " End NeoBundle setup
 call neobundle#end()
 filetype plugin indent on
@@ -104,6 +128,8 @@ set wildignore+=*/.git/*
 set wildignore+=*/.svn/*
 set wildignore+=*/.hg/*
 set wildignore+=*/cvs/*
+set wildmenu
+set wildmode=longest:full
 
 " Highlight search results. Search incrementally as I type.
 set hlsearch incsearch
@@ -186,7 +212,7 @@ nnoremap ` '
 set textwidth=0 tabstop=2 shiftwidth=2 expandtab
 
 " Include useful stuff in the status line: buffer number, file name, current line & column, percentage through file.
-set statusline=\[%02n\]%*%<\ %f\ %h%m%r%*%=%-14.(%l,%c%)%P
+set statusline=\[%02n\]%*%#warningmsg#%{SyntasticStatuslineFlag()}%<\ %f\ %h%m%r%*%=%-14.(%l,%c%)%P
 
 " Always show a status line.
 set laststatus=2
