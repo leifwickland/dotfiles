@@ -2,10 +2,10 @@
 # Formats scala code. Wrapper around the scalariform jar.
 # Will attempt to download the JAR if necessary.
 die() {
-  echo $*
+  echo "$@"
   exit 1;
 }
-DIR=$(dirname $0)
+DIR="$(dirname "$0")"
 JAR="$DIR/scalariform.jar"
 if [ ! -f "$JAR" ]; then
   echo "The scalariform jar was not found.  Attempting to download it."
@@ -13,4 +13,4 @@ if [ ! -f "$JAR" ]; then
   wget -O "$JAR" "$URL" || die "FATAL ERROR: Unable to download scalariform jar from $URL."
   chmod a-x "$JAR" # Because this file is probably in the user's path, make the jar non-executable so it isn't included in completion.
 fi
-exec java -jar $JAR +preserveDanglingCloseParenthesis $*
+exec java -jar "$JAR" +preserveDanglingCloseParenthesis "$@"

@@ -1,3 +1,5 @@
+#!/bin/bash 
+
 if [ -f /etc/bashrc ]; then source /etc/bashrc; fi
 
 # Stolen from /etc/profile in RHEL 7.3
@@ -12,16 +14,16 @@ pathmunge () {
 }
 
 run_local_bashrc() {
-  f=~/.bashrc.local/$(hostname -s).$1.sh
-  if [ -f $f ]; then
-    source $f
+  f=~/.bashrc.local/$(/bin/hostname -s).$1.sh
+  if [ -f "$f" ]; then
+    source "$f"
   fi
   unset f
 }
 
 run_local_bashrc "pre"
 
-[ -f /etc/profile.d/bash-completion ] && . /etc/profile.d/bash-completion
+[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
 
 #typo me not
 alias amke='make'
@@ -35,52 +37,16 @@ alias lla='ls --color=auto -lhA'
 alias llt='ls --color=auto -lhtr'
 alias lls='ls --color=auto -lhSr'
 alias nicest="nice --adjustment=19"
-alias wputs='wget -q --output-document=-'
 alias cd..='cd ..'
 alias cd...='cd ../..'
 alias cd....='cd ../../..'
-alias cd.....='cd ../../../..'
-alias cd......='cd ../../../../..'
-alias cd.......='cd ../../../../../..'
-alias cd........='cd ../../../../../../..'
 
-alias judith='rdesktop -g 1920x1200 -u lwicklan -d oradev judith.us.oracle.com &'
 
-# Roughly the equivalent of:
-#   git diff -no-ext-diff --relative --name-only
-alias cvsdiff='cvs -q diff | grep ^Index: | sed -re "s/^Index: //"'
-
-function cvsrevert() {
-  if [ ! -d "CVS" ]; then
-    echo "You're not in a CVS dir. I quit."
-  else
-    while [ $# -gt 0 ]; do
-      if [ -f $1 ]; then
-        echo "Reverting $1..."
-        mv $1 $1.bak
-        if [ `cvs up $1 2>&1 | grep was.lost | wc -l` -eq 1 ]; then
-          rm $1.bak
-        else
-          mv $1.bak $1
-          echo "Failed to cvs up $1. Restored original."
-        fi
-      else
-        echo "Not messing with $1 because it doesn't appear to be a file."
-      fi
-      shift
-    done
-  fi
-}
-
-# Prints the total size of the select files
-filesize() {
-  ls -l $*
-  ls -lt $* | awk '{kb += $5} END {kb=kb/1024 ; printf(" TOTAL SIZE: %4.2f MB\n",kb/1024)}'
-}
 
 source ~/.git-completion.sh
 source ~/.git-prompt.sh
 PS1='\n\u@\h $(__git_ps1 "[%s] ")\w\$ '
+
 
 shopt -s cmdhist # Try to save multiline commands as a single unit.
 shopt -s histappend # Append to, rather than overwrite, the history file when bash closes
@@ -90,10 +56,12 @@ shopt -u mailwarn # I don't care about new mail.
 shopt -s globstar 2>/dev/null # Make ** do a recursive wildcard.
 shopt -s checkwinsize # Checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS.
 
+
 set -o vi # use vi style command editing
 if [ "$TERM" != "dumb" ]; then
   stty -ixon # Don't lock up the terminal when Ctrl-S is pressed.
 fi
+
 
 # Enable colored man pages. Stolen from http://fahdshariff.blogspot.com/2011/03/my-bash-profile-part-i.html
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -118,6 +86,8 @@ export HISTTIMEFORMAT='%F %T '
 
 export GOPATH="$HOME/src/go"
 
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/usr/share/man
+
 # Complete ssh hostnames by rummaging around in bash history. Idea from http://b.sricola.com/post/16174981053/bash-autocomplete-for-ssh
 # Technically this version is wrong because it always grabs the last word on the line, but that was the easiest way to skip past options.
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u |  sed -r 's/^ssh[[:space:]]+([^[:space:]]+[[:space:]]+)*([^[:space:]]+)[[:space:]]*$/\2/'))" ssh
@@ -127,23 +97,6 @@ gitbr() {
   git branch --no-color | grep '[*]' | sed 's/[ *]//g'
 }
 
-cdr() {
-  if [ $# -lt 2 ]; then
-    echo "Usage: cdr <segment to match> <replacement" 1>&2
-    echo "Changes to the directory that is formed by replacing the specified segment with the replacement." 1>&2
-    echo "" 1>&2
-    return 1
-  fi
-  end='$'
-  newdir=`pwd | sed -r "s@/$1(/|$end)@/$2/@"`
-  if [ "$newdir" == "`pwd`" ]; then
-    echo "ERROR: I couldn't find '$1' in $(pwd)." 1>&2
-    echo "" 1>&2
-    return 1
-  else
-    cd "$newdir"
-  fi
-}
 
 cdf() {
   if [ $# -lt 1 ]; then

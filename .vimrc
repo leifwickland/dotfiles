@@ -39,7 +39,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 
 " Scala support
-NeoBundle 'https://github.com/derekwyatt/vim-scala/'
+NeoBundle 'https://github.com/natebosch/vim-lsc'
+NeoBundle 'https://github.com/derekwyatt/vim-scala'
 NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
 NeoBundle 'ssh://github.com/leifwickland/scala-vim-support'
 " NeoBundle 'ensime/ensime-vim'
@@ -51,7 +52,7 @@ NeoBundle 'ssh://github.com/leifwickland/cvsmenu.vim'
 " Git support
 NeoBundle 'https://github.com/tpope/vim-fugitive'
 NeoBundle 'https://github.com/tpope/vim-rhubarb'
-
+let g:github_enterprise_urls = ['https://github.rp-core.com']
 
 " PHP support
 NeoBundle 'ssh://github.com/leifwickland/vim-php-support'
@@ -122,6 +123,18 @@ set background=light
 syntax enable
 syntax on
 
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+
+" Configuration for vim-lsc
+let g:lsc_enable_autocomplete = v:false
+let g:lsc_server_commands = {
+  \ 'scala': 'metals-vim'
+  \}
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': 'gd',
+    \}
+
 set wildignore+=*.class
 set wildignore+=*/target/*
 set wildignore+=*/.git/*
@@ -188,7 +201,7 @@ nmap K k
 nmap <c-k> k
 
 " Yes, please, grep recursively.
-set grepprg+=\ -R
+set grepprg+=\ -RIP\ --exclude-dir=.git
 
 " Scala specific grep
 command! -nargs=+ GS :grep --include='*.scala' <args> */
@@ -260,3 +273,11 @@ cab SEx Sex
 " default 5 line window at the beginning and end of the files, but they seem
 " to be. Shrug. Moving on.
 set nomodeline
+
+" Open quickfix automatically
+augroup qf
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    cwindow
+    autocmd VimEnter        *     cwindow
+augroup END
