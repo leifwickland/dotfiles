@@ -3,7 +3,7 @@
     email = leifwickland@gmail.com
 [core]
     editor = vim -X
-	excludesfile = /Users/lwickland/.gitignore_global
+    excludesfile = /Users/lwickland/.gitignore_global
     #pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     ; Laziness is a virtue; short aliases
@@ -70,3 +70,5 @@
     enabled = true
 [tig]
     line-graphics = utf-8
+[hub]
+    host = github.rp-core.com
