@@ -16,6 +16,7 @@
     pp = !echo "Pulling" && git pull && echo "" && echo "Pushing" && git push
     prp = !echo "Pulling" && git pull && echo "" && echo "Rebasing" && git rebase -i origin && echo "" && echo "Pushing" && git push
     pul = pull
+    cob = "!f() { if [ $# -lt 1 ] ; then echo 'Wrong args'; return 1; else git co -b $1 && git push --set-upstream ${2-origin} $1 && echo Created $1; fi; }; f"
 
     listTrackedFiles = ls-tree -r --name-only HEAD
 
