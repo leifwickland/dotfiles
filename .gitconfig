@@ -7,6 +7,8 @@
     #pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     ; Laziness is a virtue; short aliases
+    psuh = push
+    puhs = push
     st = status
     ci = commit
     cm = commit --amend ; Typically used to change the previous commit's message.
