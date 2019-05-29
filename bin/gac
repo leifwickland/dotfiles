@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]; then 
+  git add . && git ci -m "$*" 
+else 
+  echo "How about a message, dummy?"
+fi
+
+
