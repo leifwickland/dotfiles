@@ -172,7 +172,7 @@ else
   " I'm leaving this here in case I use airline again.
   let g:airline_theme='kolor'
   " I really like how this scheme looks in Putty and really hate how it looks in gvim
-  colorscheme desert
+  colorscheme default
 endif
 
 " set the location swap files are written to
