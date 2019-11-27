@@ -8,6 +8,7 @@
 [alias]
     ; Laziness is a virtue; short aliases
     psuh = push
+    pus = push
     puhs = push
     st = status
     ci = commit
