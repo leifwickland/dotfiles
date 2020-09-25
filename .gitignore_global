@@ -1,3 +1,4 @@
 .bloop
 .metals
 .DS_Store
+metals.sbt

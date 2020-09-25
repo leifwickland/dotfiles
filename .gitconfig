@@ -1,6 +1,6 @@
 [user]
-    name = Leif Wickland
-    email = leifwickland@gmail.com
+	name = lwickland
+	email = lwickland@rubiconproject.com
 [core]
     editor = vim -X
     excludesfile = /Users/lwickland/.gitignore_global
@@ -15,6 +15,7 @@
     cm = commit --amend ; Typically used to change the previous commit's message.
     cA = commit --amend -C HEAD ; Commit, merging into the previous commit and reusing its message. Named based on fugitive analog.
     br = branch
+    branches = !"git for-each-ref --sort='-authordate:iso8601' --format=' %(color:green)%(authordate:iso8601)%09%(color:black)%(refname:short)' refs/heads | tac"
     co = checkout
     pp = !echo "Pulling" && git pull && echo "" && echo "Pushing" && git push
     prp = !echo "Pulling" && git pull && echo "" && echo "Rebasing" && git rebase -i origin && echo "" && echo "Pushing" && git push
@@ -68,13 +69,23 @@
     enableRebasePull = config branch.master.rebase true
 [color]
     ui = auto
+	diff = auto
+	status = auto
+	branch = auto
 [branch]
     autosetuprebase = always ; When creating a clone, configure it to rebase on pull (instead of merge on pull).  Avoids merge commits.
 [push]
-    default = tracking ; Default to only pushing the current branch.  When I don't have to work with old version of get, this should become 'simple'.
+	default = simple
 [rerere]
     enabled = true
 [tig]
     line-graphics = utf-8
 [hub]
     host = github.rp-core.com
+[http]
+	sslVerify = false
+[credential]
+	helper = cache --timeout=315360000
+	username = lwickland@rubiconproject.com
+[pull]
+	rebase = true

@@ -39,7 +39,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 
 " Scala support
-NeoBundle 'https://github.com/natebosch/vim-lsc'
+"#NeoBundle 'https://github.com/natebosch/vim-lsc'
+NeoBundle 'neoclide/coc.nvim', 'release'
 NeoBundle 'https://github.com/derekwyatt/vim-scala'
 NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
 NeoBundle 'ssh://github.com/leifwickland/scala-vim-support'
@@ -206,6 +207,10 @@ set grepprg+=\ -RIP\ --exclude-dir=.git
 " Scala specific grep
 command! -nargs=+ GS :grep --include='*.scala' <args> */
 command! -nargs=+ GSS :grep --include='*.scala' <args>
+
+" C/C++ specific grep
+command! -nargs=+ GC :grep --include='*.[ch]' --include='*.[ch]pp' --include='*.hh' <args> */
+command! -nargs=+ GCS :grep --include='*.[ch]' --include='*.[ch]pp' --include='*.hh' <args>
 
 vmap * y/<c-r>"<cr>
 
