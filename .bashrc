@@ -239,7 +239,7 @@ pathmunge "$HOME/.local/bin"
 pathmunge "$HOME/.yarn/bin"
 pathmunge "$HOME/.config/yarn/global/node_modules/.bin"
 pathmunge "/usr/local/opt/grep/libexec/gnubin"
-pathmunge "Users/lwickland/Library/Application Support/Coursier/bin"
+pathmunge "$HOME/Library/Application Support/Coursier/bin" # via https://alexarchambault.github.io/posts/2020-09-21-cs-setup.html#getting-the-coursier-launcher-and-run-setup
 pathmunge "$HOME/bin" # Ensure ~/bin is first in my path.
 unset pathmunge
 
