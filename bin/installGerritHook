@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gitdir=$(git rev-parse --git-dir)
+scp -p -P 29418 "$USER@gerrit.spotxchange.com:hooks/commit-msg" "${gitdir}/hooks/"

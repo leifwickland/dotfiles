@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+  echo "How about a branch, dummy?" >&2
+  exit 1
+fi
+
+git push origin "HEAD:refs/for/$1"
