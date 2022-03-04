@@ -1,5 +1,8 @@
 #!/bin/bash 
 
+# Stick the GNU utils from homebrew at the front of my path so that everything after works.
+if [ -d ~/bin/gnubin ]; then PATH=~/bin/gnubin:$PATH ; fi 
+
 if [ -f /etc/bashrc ]; then source /etc/bashrc; fi
 
 # Stolen from /etc/profile in RHEL 7.3
@@ -97,6 +100,10 @@ gitbr() {
   git branch --no-color | grep '[*]' | sed 's/[ *]//g'
 }
 
+sshpass() {
+  eval $(ssh-agent) && ssh-add
+}
+
 
 cdf() {
   if [ $# -lt 1 ]; then
@@ -132,6 +139,15 @@ truncateWithEllipsis() {
   else
     let end=$2-3
     echo -n "${1:0:$end}..."
+  fi
+}
+
+cleanij() {
+  if [ -f "build.sbt" ] ; then 
+    find . -name target -type d -exec rm -rf {} \; 
+    rm -rf .idea/ .bsp/
+  else
+    echo "Are you where think you are? I don't see a build.sbt"
   fi
 }
 
@@ -232,10 +248,15 @@ ctarj() {
   ctar "$1" "j"
 }
 
+macalert() {
+  osascript -e "display notification \"$*\""
+}
+
 alias grep='grep --color=auto'
 
 run_local_bashrc "post"
 pathmunge "$HOME/.local/bin"
+pathmunge "$HOME/.sbt/1.0/bin"
 pathmunge "$HOME/.yarn/bin"
 pathmunge "$HOME/.config/yarn/global/node_modules/.bin"
 pathmunge "/usr/local/opt/grep/libexec/gnubin"
@@ -244,3 +265,5 @@ pathmunge "$HOME/bin" # Ensure ~/bin is first in my path.
 unset pathmunge
 
 
+
+export PATH=$PATH:/Users/lwickland/.sbt/1.0/bin

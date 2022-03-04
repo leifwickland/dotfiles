@@ -75,7 +75,7 @@
 [branch]
     autosetuprebase = always ; When creating a clone, configure it to rebase on pull (instead of merge on pull).  Avoids merge commits.
 [push]
-	default = simple
+	default = current
 [rerere]
     enabled = true
 [tig]
@@ -89,3 +89,10 @@
 	username = lwickland@rubiconproject.com
 [pull]
 	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main

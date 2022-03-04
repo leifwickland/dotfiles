@@ -39,8 +39,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 
 " Scala support
-"#NeoBundle 'https://github.com/natebosch/vim-lsc'
-NeoBundle 'neoclide/coc.nvim', 'release'
+" NeoBundle 'https://github.com/natebosch/vim-lsc'
+" NeoBundle 'neoclide/coc.nvim', 'release'
 NeoBundle 'https://github.com/derekwyatt/vim-scala'
 NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
 NeoBundle 'ssh://github.com/leifwickland/scala-vim-support'
@@ -220,6 +220,8 @@ set noequalalways
 " But I do want to keep all windows the same width by default.
 set eadirection="ver"
 
+" Mac OSX Catalina shipped with a version of vim that included the non-existant internal option. I have to remove it before any other items can be set.
+set diffopt-=internal
 set diffopt+=iwhite,context:15,vertical
 
 " Swap around ' and ` because the ` version jumps to a particular line and column, not just a particular line.

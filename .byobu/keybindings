@@ -1,3 +1,0 @@
-source /usr/share/byobu/keybindings/common
-escape ^Jj
-register n ^j^c^jA
