@@ -102,16 +102,16 @@ NeoBundle 'https://github.com/vim-scripts/vim-easy-align.git'
 NeoBundle 'https://github.com/Shougo/vimshell.vim.git'
 
 " Haskell support from http://www.stephendiehl.com/posts/vim_2016.html
-NeoBundle 'https://github.com/eagletmt/ghcmod-vim.git'
-NeoBundle 'https://github.com/eagletmt/neco-ghc'
-NeoBundle 'https://github.com/tomtom/tlib_vim.git'
-NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
-NeoBundle 'https://github.com/garbas/vim-snipmate.git'
-NeoBundle 'https://github.com/scrooloose/nerdtree.git'
-NeoBundle 'https://github.com/scrooloose/nerdcommenter.git'
-NeoBundle 'https://github.com/godlygeek/tabular.git'
-NeoBundle 'https://github.com/ervandew/supertab.git'
-NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
+"NeoBundle 'https://github.com/eagletmt/ghcmod-vim.git'
+"NeoBundle 'https://github.com/eagletmt/neco-ghc'
+"NeoBundle 'https://github.com/tomtom/tlib_vim.git'
+"NeoBundle 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
+"NeoBundle 'https://github.com/garbas/vim-snipmate.git'
+"NeoBundle 'https://github.com/scrooloose/nerdtree.git'
+"NeoBundle 'https://github.com/scrooloose/nerdcommenter.git'
+"NeoBundle 'https://github.com/godlygeek/tabular.git'
+"NeoBundle 'https://github.com/ervandew/supertab.git'
+"NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
 
 " End NeoBundle setup
 call neobundle#end()
