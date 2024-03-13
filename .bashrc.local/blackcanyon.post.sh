@@ -1,1 +1,0 @@
-oel6.buildserver.post.sh

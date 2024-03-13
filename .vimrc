@@ -41,18 +41,18 @@ let g:syntastic_check_on_open = 0
 " Scala support
 " NeoBundle 'https://github.com/natebosch/vim-lsc'
 " NeoBundle 'neoclide/coc.nvim', 'release'
-NeoBundle 'https://github.com/derekwyatt/vim-scala'
-NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
+" NeoBundle 'https://github.com/derekwyatt/vim-scala'
+" NeoBundle 'ssh://github.com/leifwickland/vim-scala-ftplugin'
 NeoBundle 'ssh://github.com/leifwickland/scala-vim-support'
 " NeoBundle 'ensime/ensime-vim'
 
 " Dear self, you always forget that this plugin is broken because it has a .vim file in DOS format.
 " I ended up making my own repo so I could fix that irritation.
-NeoBundle 'ssh://github.com/leifwickland/cvsmenu.vim'
+" NeoBundle 'ssh://github.com/leifwickland/cvsmenu.vim'
 
 " Git support
-NeoBundle 'https://github.com/tpope/vim-fugitive'
-NeoBundle 'https://github.com/tpope/vim-rhubarb'
+" NeoBundle 'https://github.com/tpope/vim-fugitive'
+" NeoBundle 'https://github.com/tpope/vim-rhubarb'
 let g:github_enterprise_urls = ['https://github.rp-core.com']
 
 " PHP support
@@ -79,10 +79,10 @@ endif
 autocmd BufNewFile,BufRead *.py.jp   set filetype=python
 
 " Beautify Javascript. Clone of jsbeautify.org.
-NeoBundle 'https://github.com/vim-scripts/jsbeautify'
+" NeoBundle 'https://github.com/vim-scripts/jsbeautify'
 
 "Compiler support for Mono's C# compiler, gmcs
-NeoBundle 'https://github.com/vim-scripts/gmcs.vim'
+" NeoBundle 'https://github.com/vim-scripts/gmcs.vim'
 
 " Fancy status line
 if has("gui_running")
@@ -99,7 +99,7 @@ NeoBundle 'https://github.com/tpope/vim-vinegar'
 " Table alignment
 NeoBundle 'https://github.com/vim-scripts/vim-easy-align.git'
 
-NeoBundle 'https://github.com/Shougo/vimshell.vim.git'
+" NeoBundle 'https://github.com/Shougo/vimshell.vim.git'
 
 " Haskell support from http://www.stephendiehl.com/posts/vim_2016.html
 "NeoBundle 'https://github.com/eagletmt/ghcmod-vim.git'

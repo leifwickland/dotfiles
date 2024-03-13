@@ -29,6 +29,7 @@ run_local_bashrc "pre"
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
 
 #typo me not
+alias gti='git'
 alias amke='make'
 alias jbos='jobs'
 alias mdkir='mkdir'
@@ -65,6 +66,8 @@ if [ "$TERM" != "dumb" ]; then
   stty -ixon # Don't lock up the terminal when Ctrl-S is pressed.
 fi
 
+# Shutup OSX about bash being old
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Enable colored man pages. Stolen from http://fahdshariff.blogspot.com/2011/03/my-bash-profile-part-i.html
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -257,13 +260,19 @@ alias grep='grep --color=auto'
 run_local_bashrc "post"
 pathmunge "$HOME/.local/bin"
 pathmunge "$HOME/.sbt/1.0/bin"
-pathmunge "$HOME/.yarn/bin"
-pathmunge "$HOME/.config/yarn/global/node_modules/.bin"
-pathmunge "/usr/local/opt/grep/libexec/gnubin"
-pathmunge "$HOME/Library/Application Support/Coursier/bin" # via https://alexarchambault.github.io/posts/2020-09-21-cs-setup.html#getting-the-coursier-launcher-and-run-setup
+pathmunge "/opt/homebrew/bin" 
+pathmunge "/opt/homebrew/opt/coreutils/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/ed/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/findutils/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/gawk/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/gnu-tar/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/gnu-which/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/grep/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/gsed/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/libtool/libexec/gnubin"
+pathmunge "/opt/homebrew/opt/make/libexec/gnubin"
 pathmunge "$HOME/bin" # Ensure ~/bin is first in my path.
 unset pathmunge
-
-
 
 export PATH=$PATH:/Users/lwickland/.sbt/1.0/bin
